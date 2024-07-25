@@ -10,7 +10,7 @@ Visitez [https://saleheddinetouil.github.io/moyenne-isetcom](https://saleheddine
 
 1. Sélectionnez le semestre pour lequel vous souhaitez calculer votre moyenne.
 2. Entrez vos notes pour chaque matière.
-3. Cliquez sur "Calculer la Moyenne".
+3. Cliquez sur "Calculer".
 
 ## Crédits
 
