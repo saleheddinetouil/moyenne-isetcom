@@ -25,21 +25,34 @@
 
     <div class="bg-white p-6 rounded-lg shadow-md">
       <div class="mb-4">
+        <label for="anneeSelect" class="block text-gray-700 font-bold mb-2">
+          Choisissez une année:
+        </label>
+        <select 
+          id="anneeSelect" 
+          onchange="afficherSemestres(this.value)"
+          class="form-select block w-full appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+        >
+          <option value="">--Sélectionnez--</option>
+          <option value="1ere Année">1ere Année</option>
+          <option value="2eme Année">2eme Année</option>
+          <option value="3eme Année">3eme Année</option>
+        </select>
+      </div>
+      <div class="mb-4">
         <label for="semestreSelect" class="block text-gray-700 font-bold mb-2">
           Choisissez un semestre:
         </label>
         <select 
           id="semestreSelect" 
-          onchange="afficherMatieres(this.value)"
+          onchange="afficherModules(this.value)"
           class="form-select block w-full appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
         >
           <option value="">--Sélectionnez--</option>
-          <option value="Semestre 1">Semestre 1</option>
-          <option value="Semestre 2">Semestre 2</option>
-          </select>
+        </select>
       </div>
 
-      <div id="matieres" class="mb-6"></div>
+      <div id="modules" class="mb-6"></div>
 <div class="flex justify-center">
       <button 
         onclick="calculerMoyenne()"
@@ -61,89 +74,214 @@
     <footer class="text-center text-gray-600 text-sm mt-8 mb-8">
 
         <div class="text-center text-gray-600 text-sm mt-8">
-        &copy; <script>document.write(new Date().getFullYear());</script> <a href="mailto:saleh.touil@icloud.com" class="text-blue-500 hover:text-blue-700"> Saleh Eddine Touil</a>. Tous droits réservés.
+        © <script>document.write(new Date().getFullYear());</script> <a href="mailto:saleh.touil@icloud.com" class="text-blue-500 hover:text-blue-700"> Saleh Eddine Touil</a>. Tous droits réservés.
         </div>
     </footer>
 
   <script>
     const isetComData = {
-      "Semestre 1": {
-        "Fondementaux pour les télécoms": { coefficient: 2.5, credits: 5 },
-        "Fondementaux des mathématiques": { coefficient: 2.5, credits: 5 },
-        "Introduction aux systèmes télécoms": { coefficient: 2, credits: 4 },
-        "Programmation": { coefficient: 2.5, credits: 5 },
-        "Electronique de base": { coefficient: 2.5, credits: 5 },
-        "Transversales1": { coefficient: 3, credits: 6 }
-        // ... autres matières du semestre 1
+      "1ere Année": {
+        "Semestre 1": {
+          "Fondementaux pour les télécoms": {
+            "Electromagnétisme": { coefficient: 1.5, credits: 3 },
+            "Introduction aux signaux et systémes": { coefficient: 1, credits: 2 }
+          },
+          "Fondementaux des mathématiques": {
+            "Algèbre linéaire": { coefficient: 1, credits: 2 },
+            "Calcul différentiel et intégral": { coefficient: 1.5, credits: 3 }
+          },
+          "Introduction aux systèmes télécoms": {
+            "Transmission analogique": { coefficient: 1, credits: 2 },
+            "Transmission numérique": { coefficient: 1, credits: 2 }
+          },
+          "Programmation": {
+            "Programmation C": { coefficient: 1, credits: 2 },
+            "Structures de données": { coefficient: 1.5, credits: 3 }
+          },
+          "Electronique de base": {
+            "Circuits linéaires": { coefficient: 1, credits: 2 },
+            "Circuits non-linéaires": { coefficient: 1.5, credits: 3 }
+          },
+          "Transversales 1": {
+            "Anglais": { coefficient: 1, credits: 2 },
+            "Culture générale": { coefficient: 1, credits: 2 }
+          }
+        },
+        "Semestre 2": {
+          "Mathématiques avancées": {
+            "Probabilités et statistiques": { coefficient: 1, credits: 2 },
+            "Equations différentielles": { coefficient: 1.5, credits: 3 }
+          },
+          "Physique": {
+            "Mécanique": { coefficient: 1, credits: 2 },
+            "Optique": { coefficient: 1.5, credits: 3 }
+          },
+          "Fondementaux des réseaux et communications": {
+            "Architecture des réseaux": { coefficient: 1, credits: 2 },
+            "Protocoles de réseaux": { coefficient: 1.5, credits: 3 }
+          },
+          "Programmation système": {
+            "Programmation système Linux": { coefficient: 1, credits: 2 },
+            "Programmation réseau": { coefficient: 1.5, credits: 3 }
+          },
+          "Electronique de base": {
+            "Composants électroniques": { coefficient: 1, credits: 2 },
+            "Amplificateurs": { coefficient: 1.5, credits: 3 }
+          },
+          "Transversales 2": {
+            "Communication professionnelle": { coefficient: 1, credits: 2 },
+            "Sport": { coefficient: 1, credits: 2 }
+          }
+        }
       },
-      "Semestre 2": {
-        "Mathématiques avancées": { coefficient: 2.5, credits: 5 },
-        "Physique": { coefficient: 2.5, credits: 5 },
-        "Fondementaux des réseaux et communications": { coefficient: 2.5, credits: 5 },
-        "Programmation système": { coefficient: 2.5, credits: 5 },
-        "Electronique de base": { coefficient: 2.5, credits: 5 },
-        "Transversales 2": { coefficient: 2.5, credits: 5 }
-        // ... matières du semestre 2
+      "2eme Année": {
+        "Semestre 1": {
+          "Algorithmique et structures de données": {
+            "Algorithmes de tri": { coefficient: 1, credits: 2 },
+            "Structures de données avancées": { coefficient: 1.5, credits: 3 }
+          },
+          "Programmation orientée objet": {
+            "Programmation Java": { coefficient: 1, credits: 2 },
+            "Design Patterns": { coefficient: 1.5, credits: 3 }
+          },
+          "Réseaux informatiques": {
+            "Réseaux locaux": { coefficient: 1, credits: 2 },
+            "Réseaux étendus": { coefficient: 1.5, credits: 3 }
+          },
+          "Bases de données": {
+            "SQL": { coefficient: 1, credits: 2 },
+            "Modélisation de données": { coefficient: 1.5, credits: 3 }
+          },
+          "Systèmes d'exploitation": {
+            "Architecture des systèmes d'exploitation": { coefficient: 1, credits: 2 },
+            "Gestion de la mémoire": { coefficient: 1.5, credits: 3 }
+          },
+          "Transversales 3": {
+            "Anglais professionnel": { coefficient: 1, credits: 2 },
+            "Développement personnel": { coefficient: 1, credits: 2 }
+          }
+        },
+        "Semestre 2": {
+          "Architecture des ordinateurs": {
+            "Architecture de processeurs": { coefficient: 1, credits: 2 },
+            "Mémoire et stockage": { coefficient: 1.5, credits: 3 }
+          },
+          "Ingénierie logicielle": {
+            "Méthodes de développement logiciel": { coefficient: 1, credits: 2 },
+            "Gestion de configuration": { coefficient: 1.5, credits: 3 }
+          },
+          "Réseaux de communication": {
+            "Réseaux sans fil": { coefficient: 1, credits: 2 },
+            "Protocoles de routage": { coefficient: 1.5, credits: 3 }
+          },
+          "Sécurité informatique": {
+            "Cryptographie": { coefficient: 1, credits: 2 },
+            "Sécurité des réseaux": { coefficient: 1.5, credits: 3 }
+          },
+          "Gestion de projets": {
+            "Méthodologies de gestion de projets": { coefficient: 1, credits: 2 },
+            "Gestion des risques": { coefficient: 1.5, credits: 3 }
+          },
+          "Transversales 4": {
+            "Communication interculturelle": { coefficient: 1, credits: 2 },
+            "Entrepreneuriat": { coefficient: 1, credits: 2 }
+          }
+        }
       },
-      // ... autres semestres
+      "3eme Année": {
+        "Semestre 1": {
+          "Réseaux mobiles": {
+            "GSM": { coefficient: 1, credits: 2 },
+            "UMTS": { coefficient: 1.5, credits: 3 }
+          },
+          "Web et applications mobiles": {
+            "Développement web": { coefficient: 1, credits: 2 },
+            "Développement mobile": { coefficient: 1.5, credits: 3 }
+          },
+          "Intelligence artificielle": {
+            "Apprentissage automatique": { coefficient: 1, credits: 2 },
+            "Réseaux neuronaux": { coefficient: 1.5, credits: 3 }
+          },
+          "Cloud computing": {
+            "Services cloud": { coefficient: 1, credits: 2 },
+            "Architecture cloud": { coefficient: 1.5, credits: 3 }
+          },
+          "Big data": {
+            "Analyse de données volumineuses": { coefficient: 1, credits: 2 },
+            "Traitement de données": { coefficient: 1.5, credits: 3 }
+          },
+          "Transversales 5": {
+            "Anglais technique": { coefficient: 1, credits: 2 },
+            "Éthique et responsabilité": { coefficient: 1, credits: 2 }
+          }
+        }
+      }
     };
 
-        // Déterminer le semestre en fonction de la date
-        const aujourdhui = new Date();
-    const moisActuel = aujourdhui.getMonth() + 1; // 0 = janvier, 1 = février, etc.
-    const jourActuel = aujourdhui.getDate();
+    function afficherSemestres(annee) {
+      const semestreSelect = document.getElementById("semestreSelect");
+      semestreSelect.innerHTML = '<option value="">--Sélectionnez--</option>'; // Réinitialisation
 
-    let semestreActuel = 2; // Par défaut, semestre 2
-    if ((moisActuel >= 9 && moisActuel <= 12) || (moisActuel === 1 && jourActuel <= 15)) {
-      semestreActuel = 1;
+      if (annee === "3eme Année") {
+        semestreSelect.innerHTML += '<option value="Semestre 1">Semestre 1</option>';
+      } else {
+        semestreSelect.innerHTML += '<option value="Semestre 1">Semestre 1</option>';
+        semestreSelect.innerHTML += '<option value="Semestre 2">Semestre 2</option>';
+      }
     }
 
-    // choisit le semestre par défaut
-    const semestreSelect = document.getElementById("semestreSelect");
-    semestreSelect.value = semestreActuel === 1 ? "Semestre 1" : "Semestre 2";
-    afficherMatieres(semestreSelect.value);
+    function afficherModules(semestre) {
+      const modulesDiv = document.getElementById("modules");
+      modulesDiv.innerHTML = "";
 
-    function afficherMatieres(semestre) {
-      const matieresDiv = document.getElementById("matieres");
-      matieresDiv.innerHTML = "";
+      const annee = document.getElementById("anneeSelect").value;
 
-      if (isetComData[semestre]) { 
-        for (const matiere in isetComData[semestre]) {
-          const inputLabel = document.createElement("label");
-          inputLabel.textContent = matiere;
-          inputLabel.className = "block text-gray-700 font-bold mb-2";
+      if (isetComData[annee] && isetComData[annee][semestre]) {
+        for (const matiere in isetComData[annee][semestre]) {
+          for (const module in isetComData[annee][semestre][matiere]) {
+            const inputLabel = document.createElement("label");
+            inputLabel.textContent = `${matiere}`;
+            inputLabel.className = "block text-gray-700 font-bold mb-2";
+            const spanInput = document.createElement("span");
+            spanInput.textContent = ` --> ${module}`;
+            spanInput.className = "text-red-500";
+            inputLabel.appendChild(spanInput);
+            const inputField = document.createElement("input");
+            inputField.type = "number";
+            inputField.id = `${annee}_${semestre}_${matiere.replace(/\s+/g, '')}_${module.replace(/\s+/g, '')}`; // ID unique
+            inputField.min = "0";
+            inputField.max = "20";
+            inputField.className = "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4";
 
-          const inputField = document.createElement("input");
-          inputField.type = "number";
-          inputField.id = matiere.replace(/\s+/g, ''); 
-          inputField.min = "0";
-          inputField.max = "20";
-          inputField.className = "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4"; 
-
-          matieresDiv.appendChild(inputLabel);
-          matieresDiv.appendChild(inputField);
+            modulesDiv.appendChild(inputLabel);
+            modulesDiv.appendChild(inputField);
+          }
         }
       }
     }
 
     function calculerMoyenne() {
+      const annee = document.getElementById("anneeSelect").value;
       const semestre = document.getElementById("semestreSelect").value;
       let sommeNotesCoefficients = 0;
       let sommeCoefficients = 0;
 
-      if (isetComData[semestre]) {
-        for (const matiere in isetComData[semestre]) {
-          const note = parseFloat(document.getElementById(matiere.replace(/\s+/g, '')).value) || 0;
-          const coefficient = isetComData[semestre][matiere].coefficient;
+      if (isetComData[annee] && isetComData[annee][semestre]) {
+        for (const matiere in isetComData[annee][semestre]) {
+          for (const module in isetComData[annee][semestre][matiere]) {
+            const note = parseFloat(document.getElementById(`${annee}_${semestre}_${matiere.replace(/\s+/g, '')}_${module.replace(/\s+/g, '')}`).value) || 0;
+            const coefficient = isetComData[annee][semestre][matiere][module].coefficient;
+            const credits = isetComData[annee][semestre][matiere][module].credits;
 
-          sommeNotesCoefficients += note * coefficient;
-          sommeCoefficients += coefficient;
+            sommeNotesCoefficients += note * coefficient;
+            sommeCoefficients += coefficient * credits;
+          }
         }
 
         const moyenne = sommeNotesCoefficients / sommeCoefficients;
-        document.getElementById("resultat").textContent = `Moyenne du ${semestre} : ${moyenne.toFixed(2)}`;
+        document.getElementById("resultat").textContent = `Moyenne du ${semestre} de la ${annee} : ${moyenne.toFixed(2)}`;
       } else {
-        document.getElementById("resultat").textContent = "Veuillez sélectionner un semestre.";
+        document.getElementById("resultat").textContent = "Veuillez sélectionner une année et un semestre.";
       }
     }
   </script>
