@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur de Moyenne ISET'Com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Calculateur de moyenne ISET'Com">
+  <meta name="author" content="Saleh Eddine Touil">
+  <meta name="keywords" content="ISET'Com, Calculateur de moyenne, Moyenne, ISET'Com Moyenne">
+  <link rel="icon" href="https://www.isetcom.tn/media/image?i=202207-1/5wYYD@WqPVHyPhckmkKLii8ZHotuVe-$cKDo32JM.jpeg">
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <div class="container mx-auto p-8">
+    <!-- LOGO ET TITRE -->
+    <div class="flex items-center justify-center mb-8 bg-gray-400 p-6 rounded-lg shadow-md">
+        <a target="_blank" href="https://isetcom.tn/" class="text-blue-500 hover:text-blue-700">
+      <img src="https://isetcom.tn/public/servlet/configFile/globalConfiguration_-ZWW7J8Q_R-ptSHicvH=$jtZE9R97Pqr_DI2r3OA4YmxKgUto4.png/PUBLIC_SITE/LOGO" alt="ISET'Com" class="w-64 h-16 sm:h-24">
+    </a>
+</div>  
+    <h1 class="text-3xl font-bold text-center mb-8 text-blue-500">
+      Calculateur de Moyenne
+    </h1>
+
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <div class="mb-4">
+        <label for="semestreSelect" class="block text-gray-700 font-bold mb-2">
+          Choisissez un semestre:
+        </label>
+        <select 
+          id="semestreSelect" 
+          onchange="afficherMatieres(this.value)"
+          class="form-select block w-full appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+        >
+          <option value="">--Sélectionnez--</option>
+          <option value="Semestre 1">Semestre 1</option>
+          <option value="Semestre 2">Semestre 2</option>
+          </select>
+      </div>
+
+      <div id="matieres" class="mb-6"></div>
+<div class="flex justify-center">
+      <button 
+        onclick="calculerMoyenne()"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        Calculer
+      </button>
+      <button 
+        onclick="location.reload()"
+        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4"
+      >
+        Reinitialiser
+      </button>
+</div>
+      <p id="resultat" class="mt-4 text-lg font-semibold"></p>
+    </div>
+  </div>
+
+    <footer class="text-center text-gray-600 text-sm mt-8 mb-8">
+
+        <div class="text-center text-gray-600 text-sm mt-8">
+        &copy; <script>document.write(new Date().getFullYear());</script> <a href="mailto:saleh.touil@icloud.com" class="text-blue-500 hover:text-blue-700"> Saleh Eddine Touil</a>. Tous droits réservés.
+        </div>
+    </footer>
+
+  <script>
+    const isetComData = {
+      "Semestre 1": {
+        "Fondementaux pour les télécoms": { coefficient: 2.5, credits: 5 },
+        "Fondementaux des mathématiques": { coefficient: 2.5, credits: 5 },
+        "Introduction aux systèmes télécoms": { coefficient: 2, credits: 4 },
+        "Programmation": { coefficient: 2.5, credits: 5 },
+        "Electronique de base": { coefficient: 2.5, credits: 5 },
+        "Transversales1": { coefficient: 3, credits: 6 }
+        // ... autres matières du semestre 1
+      },
+      "Semestre 2": {
+        "Mathématiques avancées": { coefficient: 2.5, credits: 5 },
+        "Physique": { coefficient: 2.5, credits: 5 },
+        "Fondementaux des réseaux et communications": { coefficient: 2.5, credits: 5 },
+        "Programmation système": { coefficient: 2.5, credits: 5 },
+        "Electronique de base": { coefficient: 2.5, credits: 5 },
+        "Transversales 2": { coefficient: 2.5, credits: 5 }
+        // ... matières du semestre 2
+      },
+      // ... autres semestres
+    };
+
+        // Déterminer le semestre en fonction de la date
+        const aujourdhui = new Date();
+    const moisActuel = aujourdhui.getMonth() + 1; // 0 = janvier, 1 = février, etc.
+    const jourActuel = aujourdhui.getDate();
+
+    let semestreActuel = 2; // Par défaut, semestre 2
+    if ((moisActuel >= 9 && moisActuel <= 12) || (moisActuel === 1 && jourActuel <= 15)) {
+      semestreActuel = 1;
+    }
+
+    // choisit le semestre par défaut
+    const semestreSelect = document.getElementById("semestreSelect");
+    semestreSelect.value = semestreActuel === 1 ? "Semestre 1" : "Semestre 2";
+    afficherMatieres(semestreSelect.value);
+
+    function afficherMatieres(semestre) {
+      const matieresDiv = document.getElementById("matieres");
+      matieresDiv.innerHTML = "";
+
+      if (isetComData[semestre]) { 
+        for (const matiere in isetComData[semestre]) {
+          const inputLabel = document.createElement("label");
+          inputLabel.textContent = matiere;
+          inputLabel.className = "block text-gray-700 font-bold mb-2";
+
+          const inputField = document.createElement("input");
+          inputField.type = "number";
+          inputField.id = matiere.replace(/\s+/g, ''); 
+          inputField.min = "0";
+          inputField.max = "20";
+          inputField.className = "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4"; 
+
+          matieresDiv.appendChild(inputLabel);
+          matieresDiv.appendChild(inputField);
+        }
+      }
+    }
+
+    function calculerMoyenne() {
+      const semestre = document.getElementById("semestreSelect").value;
+      let sommeNotesCoefficients = 0;
+      let sommeCoefficients = 0;
+
+      if (isetComData[semestre]) {
+        for (const matiere in isetComData[semestre]) {
+          const note = parseFloat(document.getElementById(matiere.replace(/\s+/g, '')).value) || 0;
+          const coefficient = isetComData[semestre][matiere].coefficient;
+
+          sommeNotesCoefficients += note * coefficient;
+          sommeCoefficients += coefficient;
+        }
+
+        const moyenne = sommeNotesCoefficients / sommeCoefficients;
+        document.getElementById("resultat").textContent = `Moyenne du ${semestre} : ${moyenne.toFixed(2)}`;
+      } else {
+        document.getElementById("resultat").textContent = "Veuillez sélectionner un semestre.";
+      }
+    }
+  </script>
+</body>
+</html>
