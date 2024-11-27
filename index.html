@@ -1,289 +1,1369 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculateur de Moyenne ISET'Com</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <meta name="description" content="Calculateur de moyenne ISET'Com">
-  <meta name="author" content="Saleh Eddine Touil">
-  <meta name="keywords" content="ISET'Com, Calculateur de moyenne, Moyenne, ISET'Com Moyenne">
-  <link rel="icon" href="https://www.isetcom.tn/media/image?i=202207-1/5wYYD@WqPVHyPhckmkKLii8ZHotuVe-$cKDo32JM.jpeg">
-</head>
-<body class="bg-gray-100 font-sans">
-
-  <div class="container mx-auto p-8">
-    <!-- LOGO ET TITRE -->
-    <div class="flex items-center justify-center mb-8 bg-gray-400 p-6 rounded-lg shadow-md">
-        <a target="_blank" href="https://isetcom.tn/" class="text-blue-500 hover:text-blue-700">
-      <img src="https://isetcom.tn/public/servlet/configFile/globalConfiguration_-ZWW7J8Q_R-ptSHicvH=$jtZE9R97Pqr_DI2r3OA4YmxKgUto4.png/PUBLIC_SITE/LOGO" alt="ISET'Com" class="w-64 h-16 sm:h-24">
-    </a>
-</div>  
-    <h1 class="text-3xl font-bold text-center mb-8 text-blue-500">
-      Calculateur de Moyenne
-    </h1>
-
-    <div class="bg-white p-6 rounded-lg shadow-md">
-      <div class="mb-4">
-        <label for="anneeSelect" class="block text-gray-700 font-bold mb-2">
-          Choisissez une année:
-        </label>
-        <select 
-          id="anneeSelect" 
-          onchange="afficherSemestres(this.value)"
-          class="form-select block w-full appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-        >
-          <option value="">--Sélectionnez--</option>
-          <option value="1ere Année">1ere Année</option>
-          <option value="2eme Année">2eme Année</option>
-          <option value="3eme Année">3eme Année</option>
-        </select>
-      </div>
-      <div class="mb-4">
-        <label for="semestreSelect" class="block text-gray-700 font-bold mb-2">
-          Choisissez un semestre:
-        </label>
-        <select 
-          id="semestreSelect" 
-          onchange="afficherModules(this.value)"
-          class="form-select block w-full appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-        >
-          <option value="">--Sélectionnez--</option>
-        </select>
-      </div>
-
-      <div id="modules" class="mb-6"></div>
-<div class="flex justify-center">
-      <button 
-        onclick="calculerMoyenne()"
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculateur de Moyenne ISET'Com</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Calculateur de moyenne ISET'Com" />
+    <meta name="author" content="Saleh Eddine Touil" />
+    <meta
+      name="keywords"
+      content="ISET'Com, Calculateur de moyenne, Moyenne, ISET'Com Moyenne"
+    />
+    <link
+      rel="icon"
+      href="https://www.isetcom.tn/media/image?i=202207-1/5wYYD@WqPVHyPhckmkKLii8ZHotuVe-$cKDo32JM.jpeg"
+    />
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <div class="container mx-auto p-8">
+      <div
+        class="flex items-center justify-center mb-8 bg-gray-400 p-6 rounded-lg shadow-md"
       >
-        Calculer
-      </button>
-      <button 
-        onclick="location.reload()"
-        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4"
-      >
-        Reinitialiser
-      </button>
-</div>
-      <p id="resultat" class="mt-4 text-lg font-semibold"></p>
+        <a
+          target="_blank"
+          href="https://isetcom.tn/"
+          class="text-blue-500 hover:text-blue-700"
+        >
+          <img
+            src="https://isetcom.tn/public/servlet/configFile/globalConfiguration_VRhU2ECldg82u4lFqBcBY6Kq7eDHJwdQhilWn41RMVZ3F5FASd.png/PUBLIC_SITE/LOGO"
+            alt="ISET'Com"
+            class="w-64 h-16 sm:h-24"
+          />
+        </a>
+      </div>
+      <h1 class="text-3xl font-bold text-center mb-8 text-blue-500">
+        Calculateur de Moyenne
+      </h1>
+
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="mb-4">
+          <label for="anneeSelect" class="block text-gray-700 font-bold mb-2">
+            Année:
+          </label>
+          <select
+            id="anneeSelect"
+            onchange="updateSpecialities()"
+            class="form-select block w-full appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+          >
+            <option value="">--Sélectionnez--</option>
+            <option value="1ere Année">1ère Année</option>
+            <option value="2eme Année">2ème Année</option>
+            <option value="3eme Année">3ème Année</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label
+            for="specialiteSelect"
+            class="block text-gray-700 font-bold mb-2"
+          >
+            Licence / Spécialité:
+          </label>
+          <select
+            id="specialiteSelect"
+            onchange="updateSemesters()"
+            class="form-select block w-full appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+          >
+            <option value="">--Sélectionnez--</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label
+            for="semestreSelect"
+            class="block text-gray-700 font-bold mb-2"
+          >
+            Semestre:
+          </label>
+          <select
+            id="semestreSelect"
+            onchange="updateModules()"
+            class="form-select block w-full appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+          >
+            <option value="">--Sélectionnez--</option>
+          </select>
+        </div>
+
+        <div id="modules" class="mb-6"></div>
+        <div class="flex justify-center">
+          <button
+            onclick="calculerMoyenne()"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Calculer
+          </button>
+          <button
+            onclick="location.reload()"
+            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4"
+          >
+            Réinitialiser
+          </button>
+        </div>
+        <p id="resultat" class="mt-4 text-lg font-semibold"></p>
+      </div>
     </div>
-  </div>
 
     <footer class="text-center text-gray-600 text-sm mt-8 mb-8">
-
-        <div class="text-center text-gray-600 text-sm mt-8">
-        © <script>document.write(new Date().getFullYear());</script> <a href="mailto:saleh.touil@icloud.com" class="text-blue-500 hover:text-blue-700"> Saleh Eddine Touil</a>. Tous droits réservés.
-        </div>
+      <div class="text-center text-gray-600 text-sm mt-8">
+        ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        <a
+          href="mailto:saleh.touil@icloud.com"
+          class="text-blue-500 hover:text-blue-700"
+        >
+          Saleh Eddine Touil
+        </a>
+        . Tous droits réservés.
+      </div>
     </footer>
 
-  <script>
-    const isetComData = {
-      "1ere Année": {
-        "Semestre 1": {
-          "Fondementaux pour les télécoms": {
-            "Electromagnétisme": { coefficient: 1.5, credits: 3 },
-            "Introduction aux signaux et systémes": { coefficient: 1, credits: 2 }
+    <script>
+      const isetComData = {
+        "1ere Année": {
+          STIC: {
+            "Semestre 1": [
+              {
+                matiere: "Fondamentaux pour les télécoms",
+                module: "Electromagnétisme",
+                coefficient: 1.5,
+                credits: 3,
+              },
+              {
+                matiere: "Fondamentaux pour les télécoms",
+                module: "Introduction aux signaux et systèmes",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Fondamentaux des mathématiques",
+                module: "Mathématiques 1",
+                coefficient: 1.5,
+                credits: 3,
+              },
+              {
+                matiere: "Fondamentaux des mathématiques",
+                module: "Probabilités et statistiques",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Introduction aux systèmes télécoms",
+                module: "Introduction aux télécoms",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Introduction aux systèmes télécoms",
+                module: "Atelier de télécoms générales",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Programmation",
+                module: "Programmation",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Programmation",
+                module: "Atelier Programmation",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Programmation",
+                module: "Algorithmique et structures de données",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Electronique de base",
+                module: "Systèmes logiques",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Electronique de base",
+                module: "circuit électriques",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Electronique de base",
+                module: "Atelier électronique 1",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Transversales1",
+                module: "English consolidation",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Transversales1",
+                module: "Environnement numérique",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Transversales1",
+                module: "Introduction générale au droit",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Transversales1",
+                module: "Introduction à la communication",
+                coefficient: 1,
+                credits: 2,
+              },
+            ],
+            "Semestre 2": [
+              {
+                matiere: "Mathématiques avancées",
+                module: "Mathématiques 2",
+                coefficient: 1.5,
+                credits: 3,
+              },
+              {
+                matiere: "Mathématiques avancées",
+                module: "Traitement de signal",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Physique",
+                module: "Propagation des ondes électromagnétiques",
+                coefficient: 1.5,
+                credits: 3,
+              },
+              {
+                matiere: "Physique",
+                module: "Atelier fondamentaux pour les télécoms",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Physique",
+                module: "Optique géométrique",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Fondamentaux des réseaux et communications",
+                module: "Atelier communications",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Fondamentaux des réseaux et communications",
+                module: "Théorie de la communication",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Fondamentaux des réseaux et communications",
+                module: "Réseaux: architectures et fonctions",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Programmation système",
+                module: "Bases de données",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Programmation système",
+                module: "Atelier programmation système",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Programmation système",
+                module: "Programmation orientée objet",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Electronique de base",
+                module: "Electronique analogique et composants",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Electronique de base",
+                module: "Electronique numérique",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Electronique de base",
+                module: "Atelier Electronique 2",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Transversales 2",
+                module: "General English",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Transversales 2",
+                module: "Droit et NTIC",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Transversales 2",
+                module: "Techniques de rédaction",
+                coefficient: 1,
+                credits: 2,
+              },
+            ],
           },
-          "Fondementaux des mathématiques": {
-            "Algèbre linéaire": { coefficient: 1, credits: 2 },
-            "Calcul différentiel et intégral": { coefficient: 1.5, credits: 3 }
+          GTIC: {
+            "Semestre 1": [
+              {
+                matiere: "Communication et développement personnel",
+                module: "English consolidation",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Communication et développement personnel",
+                module: "Environnement numérique",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Communication et développement personnel",
+                module: "Introduction générale à la communication",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Initiation aux technologies informatiques",
+                module: "Introduction à la sécurité informatiques",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Mathématique et économie",
+                module: "Economie générale",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Mathématique et économie",
+                module: "Mathématique",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Techniques comptables et juridiques 1",
+                module: "Comptabilité financière 1",
+                coefficient: 1.5,
+                credits: 3,
+              },
+              {
+                matiere: "Techniques comptables et juridiques 1",
+                module: "Introduction au droit",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Management de l'entreprise 1",
+                module: "Principes de Marketing 1",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Management de l'entreprise 1",
+                module: "Principes de gestion",
+                coefficient: 1.5,
+                credits: 3,
+              },
+            ],
+            "Semestre 2": [
+              {
+                matiere: "Communication et développement personnel 2",
+                module: "Communication interpersonelle",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Communication et développement personnel 2",
+                module: "General English",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Communication et développement personnel 2",
+                module: "Techniques de rédaction",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Conception et réalisation des TIC2",
+                module: "Atelier base de données",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Conception et réalisation des TIC2",
+                module: "Atelier développement web",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Conception et réalisation des TIC2",
+                module: "Base de données",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Service et relation client",
+                module: "Marketing services",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Service et relation client",
+                module: "Gestion des points de vente",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Management de l'entreprise 2",
+                module: "Management",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Management de l'entreprise 2",
+                module: "Principes de marketing 2",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Management de l'entreprise 2",
+                module: "Atelier étude de marché",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Gestion et traitement de l'information 1",
+                module: "Atelier méthodologie de travail",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Gestion et traitement de l'information 1",
+                module: "Statistiques descriptives et probabilité",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Gestion et traitement de l'information 1",
+                module: "Analyse conception des systèmes d'information",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Techniques comptables et juridiques 2",
+                module: "Comptabilité financière 2",
+                coefficient: 1.5,
+                credits: 3,
+              },
+              {
+                matiere: "Techniques comptables et juridiques 2",
+                module: "Droit des sociétés",
+                coefficient: 1,
+                credits: 2,
+              },
+            ],
           },
-          "Introduction aux systèmes télécoms": {
-            "Transmission analogique": { coefficient: 1, credits: 2 },
-            "Transmission numérique": { coefficient: 1, credits: 2 }
-          },
-          "Programmation": {
-            "Programmation C": { coefficient: 1, credits: 2 },
-            "Structures de données": { coefficient: 1.5, credits: 3 }
-          },
-          "Electronique de base": {
-            "Circuits linéaires": { coefficient: 1, credits: 2 },
-            "Circuits non-linéaires": { coefficient: 1.5, credits: 3 }
-          },
-          "Transversales 1": {
-            "Anglais": { coefficient: 1, credits: 2 },
-            "Culture générale": { coefficient: 1, credits: 2 }
-          }
         },
-        "Semestre 2": {
-          "Mathématiques avancées": {
-            "Probabilités et statistiques": { coefficient: 1, credits: 2 },
-            "Equations différentielles": { coefficient: 1.5, credits: 3 }
+        "2eme Année": {
+          STIC: {
+            "Semestre 3": [
+              {
+                matiere: "Introduction aux réseaux",
+                module: "Atelier réseaux",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Introduction aux réseaux",
+                module: "Les réseaux locaux",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Introduction aux réseaux",
+                module: "Introduction à la commutation et au routage",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Introduction à la sécurité",
+                module: "Fondements de la sécurité des réseaux",
+                coefficient: 1.5,
+                credits: 3,
+              },
+              {
+                matiere: "Introduction à la sécurité",
+                module: "Atelier fondements de la sécurité",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Supports sans fil et hauts débits",
+                module: "Atelier transmissions optiques",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Supports sans fil et hauts débits",
+                module: "Fondements des transmissions optiques",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Supports sans fil et hauts débits",
+                module: "Atelier antennes et dispositifs hyperfréquences",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Supports sans fil et hauts débits",
+                module: "Antennes et dispositifs hyperfréquences",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Administration systèmes",
+                module: "Méthodologies et systèmes d'information",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Administration systèmes",
+                module: "Atelier LINUX",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Administration systèmes",
+                module: "Systèmes d'exploitation LINUX",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Transversales 3",
+                module: "Français des affaires",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Transversales 3",
+                module: "Développement personnel",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Transversales 3",
+                module: "Business English 1",
+                coefficient: 1,
+                credits: 2,
+              },
+            ],
           },
-          "Physique": {
-            "Mécanique": { coefficient: 1, credits: 2 },
-            "Optique": { coefficient: 1.5, credits: 3 }
+          STICSR: {
+            "Semestre 4": [
+              {
+                matiere: "Systèmes d'accès télécoms",
+                module: "Les réseaux d'accès sans fil",
+                coefficient: 1.5,
+                credits: 2.5,
+              },
+              {
+                matiere: "Systèmes d'accès télécoms",
+                module: "Les réseaux d'accès optiques",
+                coefficient: 1,
+                credits: 2.5,
+              },
+              {
+                matiere: "Réseaux avancés",
+                module: "Commutation et routage avancées",
+                coefficient: 1.5,
+                credits: 3,
+              },
+              {
+                matiere: "Réseaux avancés",
+                module: "Atelier réseaux avancés",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Développement mobile et IoT",
+                module: "Internet des objets",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Développement mobile et IoT",
+                module: "Développement d'applications mobiles",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Développement mobile et IoT",
+                module: "Mini projet développement mobile",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Protection et évaluation de la sécurité",
+                module: "Techniques de protection dans les réseaux",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Protection et évaluation de la sécurité",
+                module: "Evaluation de la sécurité",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Protection et évaluation de la sécurité",
+                module: "Atelier Techniques de protection dans les réseaux",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Protection et évaluation de la sécurité",
+                module: "Atelier évaluation de la sécurité",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Transversales 4",
+                module: "Préparation à l'embauche 1",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Technologies émergentes 1",
+                module: "Intelligence artificielle",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Technologies émergentes 1",
+                module: "Cloud computing",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Technologies émergentes 1",
+                module: "Atelier Technologies émergentes 1",
+                coefficient: 0.5,
+                credits: 1,
+              },
+            ],
           },
-          "Fondementaux des réseaux et communications": {
-            "Architecture des réseaux": { coefficient: 1, credits: 2 },
-            "Protocoles de réseaux": { coefficient: 1.5, credits: 3 }
+          STICRST: {
+            "Semestre 4": [
+              {
+                matiere: "Systèmes d'accès télécoms",
+                module: "Les réseaux d'accès sans fil",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Systèmes d'accès télécoms",
+                module: "Atelier réseaux d'accès",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Systèmes d'accès télécoms",
+                module: "Les réseaux d'accès optiques",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Systèmes d'opérateurs",
+                module: "Réseaux intelligents et NGN",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Objets connectés et IoT",
+                module: "Mini Projet développement d'objets connectés",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Objets connectés et IoT",
+                module: "Internet des objets",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Objets connectés et IoT",
+                module: "Systèmes embarqués communicants",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Réseaux et sécurité",
+                module: "Réseaux privés virtuels (VPNs)",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Réseaux et sécurité",
+                module: "Commutation et routage avancées",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Réseaux et sécurité",
+                module: "Atelier réseaux avancés",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Transversales 4",
+                module: "Préparation à l'embauche 1",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Technologies émergentes 1",
+                module: "Technologies radio émergentes",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Technologies émergentes 1",
+                module: "Atelier Technologies émergentes 1",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Technologies émergentes 1",
+                module: "Cloud computing",
+                coefficient: 1,
+                credits: 2,
+              },
+            ],
           },
-          "Programmation système": {
-            "Programmation système Linux": { coefficient: 1, credits: 2 },
-            "Programmation réseau": { coefficient: 1.5, credits: 3 }
+          GTIC: {
+            "Semestre 3": [
+              {
+                matiere: "Management de l'entreprise 3",
+                module: "Management de l'innovation",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Management de l'entreprise 3",
+                module: "Management stratégique",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Techniques comptables et juridiques 3",
+                module: "Analyse des coûts et finance d'entreprise",
+                coefficient: 1.5,
+                credits: 3,
+              },
+              {
+                matiere: "Techniques comptables et juridiques 3",
+                module: "Droit des TIC",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Gestion et traitement de l'information 3",
+                module: "Atelier analyse de données",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Gestion et traitement de l'information 3",
+                module: "Prise de décision",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Gestion et traitement de l'information 3",
+                module: "Système d'information de l'entreprise",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Conception et réalisation des TIC 3",
+                module: "Programmation orientée objet",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Conception et réalisation des TIC 3",
+                module: "Atelier Programmation orientée objet",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Conception et réalisation des TIC 3",
+                module: "Atelier Multimédia 1",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Communication et développement personnel 3",
+                module: "Communication au sein de l'entreprise",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Communication et développement personnel 3",
+                module: "Gestion des équipes",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Communication et développement personnel 3",
+                module: "Business English",
+                coefficient: 1,
+                credits: 2,
+              },
+            ],
+            "Semestre 4": [
+              {
+                matiere: "Environnement digital et stratégie marketing",
+                module: "Marketing digital",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Environnement digital et stratégie marketing",
+                module: "Comportement de l'utilisateur",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Environnement digital et stratégie marketing",
+                module: "Atelier community management",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Management des systèmes d'information",
+                module: "Management des systèmes d'information",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Management des systèmes d'information",
+                module: "Fouille de données",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Management des systèmes d'information",
+                module: "Atelier ERP",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Environnement du travail",
+                module: "Gestion des ressources humaines",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Environnement du travail",
+                module: "Gestion des conflits",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Environnement du travail",
+                module: "Techniques de négociations",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Conception et réalisation des TIC4",
+                module: "Conception orientée objet",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Conception et réalisation des TIC4",
+                module: "Atelier conception orientée objet",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Conception et réalisation des TIC4",
+                module: "Atelier multimédia 2",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Communication et développement personnel 4",
+                module: "Préparation à l'embauche 1",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Communication et développement personnel 4",
+                module: "Preparation of TOEIC",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Communication et développement personnel 4",
+                module: "Création d'entreprise 1",
+                coefficient: 1,
+                credits: 2,
+              },
+            ],
           },
-          "Electronique de base": {
-            "Composants électroniques": { coefficient: 1, credits: 2 },
-            "Amplificateurs": { coefficient: 1.5, credits: 3 }
-          },
-          "Transversales 2": {
-            "Communication professionnelle": { coefficient: 1, credits: 2 },
-            "Sport": { coefficient: 1, credits: 2 }
-          }
-        }
-      },
-      "2eme Année": {
-        "Semestre 1": {
-          "Algorithmique et structures de données": {
-            "Algorithmes de tri": { coefficient: 1, credits: 2 },
-            "Structures de données avancées": { coefficient: 1.5, credits: 3 }
-          },
-          "Programmation orientée objet": {
-            "Programmation Java": { coefficient: 1, credits: 2 },
-            "Design Patterns": { coefficient: 1.5, credits: 3 }
-          },
-          "Réseaux informatiques": {
-            "Réseaux locaux": { coefficient: 1, credits: 2 },
-            "Réseaux étendus": { coefficient: 1.5, credits: 3 }
-          },
-          "Bases de données": {
-            "SQL": { coefficient: 1, credits: 2 },
-            "Modélisation de données": { coefficient: 1.5, credits: 3 }
-          },
-          "Systèmes d'exploitation": {
-            "Architecture des systèmes d'exploitation": { coefficient: 1, credits: 2 },
-            "Gestion de la mémoire": { coefficient: 1.5, credits: 3 }
-          },
-          "Transversales 3": {
-            "Anglais professionnel": { coefficient: 1, credits: 2 },
-            "Développement personnel": { coefficient: 1, credits: 2 }
-          }
         },
-        "Semestre 2": {
-          "Architecture des ordinateurs": {
-            "Architecture de processeurs": { coefficient: 1, credits: 2 },
-            "Mémoire et stockage": { coefficient: 1.5, credits: 3 }
+        "3eme Année": {
+          STICSR: {
+            "Semestre 5": [
+              {
+                matiere: "Sécurité 5.1",
+                module: "Audit de la sécurité",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Sécurité 5.1",
+                module: "Atelier audit de la sécurité",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Sécurité 5.1",
+                module: "Réseaux privés virtuels (VPNs)",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Sécurité 5.1",
+                module: "Atelier VPNS",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Projet tutoré",
+                module: "Projet tutoré",
+                coefficient: 2,
+                credits: 4,
+              },
+              {
+                matiere: "Sécurité 5.2",
+                module: "Sécurité dans les réseaux sans fil",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Sécurité 5.2",
+                module: "Sécurité des systèmes et services",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Sécurité 5.2",
+                module: "Atelier sécurité 5.2",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Réseaux mobiles et administration",
+                module: "De 2G à la 5G: technologie et réseaux mobiles",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Réseaux mobiles et administration",
+                module: "Administration systèmes et réseaux",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Réseaux mobiles et administration",
+                module: "Atelier administration des réseaux",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Transversales 5",
+                module: "Préparation à l'embauche 2",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Transversales 5",
+                module: "TOEIC preperation",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Transversales 5",
+                module: "Création d'entreprises",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Technologies émergentes 2",
+                module: "Commutation IP avec MPLS",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Technologies émergentes 2",
+                module: "Atelier Technologies émergentes 2",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Technologies émergentes 2",
+                module: "Data science dans le cloud",
+                coefficient: 1,
+                credits: 2,
+              },
+            ],
           },
-          "Ingénierie logicielle": {
-            "Méthodes de développement logiciel": { coefficient: 1, credits: 2 },
-            "Gestion de configuration": { coefficient: 1.5, credits: 3 }
+          STICRST: {
+            "Semestre 5": [
+              {
+                matiere: "Systèmes sans fil",
+                module: "De la 2G à la 5G: technologies et réseaux mobiles",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Systèmes sans fil",
+                module: "Atelier réseaux mobiles",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Systèmes sans fil",
+                module: "FH et réseaux satellitaires de télécoms",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Systèmes sans fil",
+                module: "Atelier FH et réseaux satellitaires",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Projet tutoré",
+                module: "Projet tutoré",
+                coefficient: 2,
+                credits: 4,
+              },
+              {
+                matiere: "Réseaux d'opérateurs",
+                module: "Commutation IP avec MPLS",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Réseaux d'opérateurs",
+                module: "Interconnexion des réseaux",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Réseaux d'opérateurs",
+                module: "Atelier réseaux étendus",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Réseaux et multimédia",
+                module: "Principes de la ToIP et de la VoIP",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Réseaux et multimédia",
+                module: "TV Numérique",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Réseaux et multimédia",
+                module: "Atelier réseaux et multimédia",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Transversales 5",
+                module: "Préparation à l'embauche 2",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Transversales 5",
+                module: "TOEIC preparation",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Transversales 5",
+                module: "Création d'entreprises",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Technologies émergentes 2",
+                module: "Atelier Technologies émergentes 2",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Technologies émergentes 2",
+                module: "LTE et EPC",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Technologies émergentes 2",
+                module: "Intelligence artificielle",
+                coefficient: 1,
+                credits: 2,
+              },
+            ],
           },
-          "Réseaux de communication": {
-            "Réseaux sans fil": { coefficient: 1, credits: 2 },
-            "Protocoles de routage": { coefficient: 1.5, credits: 3 }
+          GTIC: {
+            "Semestre 5": [
+              {
+                matiere: "Techniques de vente et communication",
+                module: "Communication marketing",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Techniques de vente et communication",
+                module: "Publicité digitale",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Techniques de vente et communication",
+                module: "Atelier publicité digitale",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Conduite de projet",
+                module: "Gestion des projets",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Conduite de projet",
+                module: "Projet tuteuré",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Conception et réalisation des TIC5",
+                module: "Développement mobile",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Conception et réalisation des TIC5",
+                module: "Atelier Développement mobile",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Conception et réalisation des TIC5",
+                module: "Optimisation des données en ligne",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Conception et réalisation des TIC5",
+                module: "Atelier optimisation des données en ligne",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Communication et développement personnel 5",
+                module: "Préparation à l'embauche 2",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Communication et développement personnel 5",
+                module: "Preparation of TOEIC",
+                coefficient: 1,
+                credits: 2,
+              },
+              {
+                matiere: "Communication et développement personnel 5",
+                module: "Création d'entreprise",
+                coefficient: 0.5,
+                credits: 1,
+              },
+              {
+                matiere: "Communication et développement personnel 5",
+                module: "Personnal branding and public speaking",
+                coefficient: 0.5,
+                credits: 1,
+              },
+            ],
           },
-          "Sécurité informatique": {
-            "Cryptographie": { coefficient: 1, credits: 2 },
-            "Sécurité des réseaux": { coefficient: 1.5, credits: 3 }
-          },
-          "Gestion de projets": {
-            "Méthodologies de gestion de projets": { coefficient: 1, credits: 2 },
-            "Gestion des risques": { coefficient: 1.5, credits: 3 }
-          },
-          "Transversales 4": {
-            "Communication interculturelle": { coefficient: 1, credits: 2 },
-            "Entrepreneuriat": { coefficient: 1, credits: 2 }
-          }
+        },
+      };
+
+      function updateSpecialities() {
+        const annee = document.getElementById("anneeSelect").value;
+        const specialiteSelect = document.getElementById("specialiteSelect");
+        specialiteSelect.innerHTML =
+          '<option value="">--Sélectionnez--</option>';
+        if (annee && isetComData[annee]) {
+          const specialities = Object.keys(isetComData[annee]);
+          specialities.forEach((specialite) => {
+            specialiteSelect.innerHTML += `<option value="${specialite}">${specialite}</option>`;
+          });
         }
-      },
-      "3eme Année": {
-        "Semestre 1": {
-          "Réseaux mobiles": {
-            "GSM": { coefficient: 1, credits: 2 },
-            "UMTS": { coefficient: 1.5, credits: 3 }
-          },
-          "Web et applications mobiles": {
-            "Développement web": { coefficient: 1, credits: 2 },
-            "Développement mobile": { coefficient: 1.5, credits: 3 }
-          },
-          "Intelligence artificielle": {
-            "Apprentissage automatique": { coefficient: 1, credits: 2 },
-            "Réseaux neuronaux": { coefficient: 1.5, credits: 3 }
-          },
-          "Cloud computing": {
-            "Services cloud": { coefficient: 1, credits: 2 },
-            "Architecture cloud": { coefficient: 1.5, credits: 3 }
-          },
-          "Big data": {
-            "Analyse de données volumineuses": { coefficient: 1, credits: 2 },
-            "Traitement de données": { coefficient: 1.5, credits: 3 }
-          },
-          "Transversales 5": {
-            "Anglais technique": { coefficient: 1, credits: 2 },
-            "Éthique et responsabilité": { coefficient: 1, credits: 2 }
-          }
+        updateSemesters(); //update semesters when year changes
+      }
+
+      function updateSemesters() {
+        const annee = document.getElementById("anneeSelect").value;
+        const specialite = document.getElementById("specialiteSelect").value;
+        const semestreSelect = document.getElementById("semestreSelect");
+        semestreSelect.innerHTML = '<option value="">--Sélectionnez--</option>';
+        if (
+          annee &&
+          specialite &&
+          isetComData[annee] &&
+          isetComData[annee][specialite]
+        ) {
+          const semestres = Object.keys(isetComData[annee][specialite]);
+          semestres.forEach((semestre) => {
+            semestreSelect.innerHTML += `<option value="${semestre}">${semestre}</option>`;
+          });
+        }
+        updateModules(); //update modules when semester changes
+      }
+
+      function updateModules() {
+        const modulesDiv = document.getElementById("modules");
+        modulesDiv.innerHTML = "";
+        const annee = document.getElementById("anneeSelect").value;
+        const specialite = document.getElementById("specialiteSelect").value;
+        const semestre = document.getElementById("semestreSelect").value;
+
+        if (
+          annee &&
+          semestre &&
+          specialite &&
+          isetComData[annee] &&
+          isetComData[annee][specialite] &&
+          isetComData[annee][specialite][semestre]
+        ) {
+          const modules = isetComData[annee][specialite][semestre];
+          modules.forEach((module) => {
+            modulesDiv.innerHTML += `
+              <div class="mb-4">
+                <label for="${annee}_${specialite}_${semestre}_${module.matiere.replace(
+              /\s+/g,
+              ""
+            )}_${module.module.replace(
+              /\s+/g,
+              ""
+            )}" class="block text-gray-700 font-bold mb-2">
+                  ${module.module} (${module.matiere})
+                </label>
+                <input
+                  id="${annee}_${specialite}_${semestre}_${module.matiere.replace(
+              /\s+/g,
+              ""
+            )}_${module.module.replace(/\s+/g, "")}"
+                  type="number"
+                  step="0.25"
+                  class="form-input block w-full appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+            `;
+          });
         }
       }
-    };
 
-    function afficherSemestres(annee) {
-      const semestreSelect = document.getElementById("semestreSelect");
-      semestreSelect.innerHTML = '<option value="">--Sélectionnez--</option>'; // Réinitialisation
+      function calculerMoyenne() {
+        const annee = document.getElementById("anneeSelect").value;
+        const semestre = document.getElementById("semestreSelect").value;
+        const specialite = document.getElementById("specialiteSelect").value;
+        let sommeNotesCoefficients = 0;
+        let sommeCoefficients = 0;
+        let error = false;
 
-      if (annee === "3eme Année") {
-        semestreSelect.innerHTML += '<option value="Semestre 1">Semestre 1</option>';
-      } else {
-        semestreSelect.innerHTML += '<option value="Semestre 1">Semestre 1</option>';
-        semestreSelect.innerHTML += '<option value="Semestre 2">Semestre 2</option>';
-      }
-    }
-
-    function afficherModules(semestre) {
-      const modulesDiv = document.getElementById("modules");
-      modulesDiv.innerHTML = "";
-
-      const annee = document.getElementById("anneeSelect").value;
-
-      if (isetComData[annee] && isetComData[annee][semestre]) {
-        for (const matiere in isetComData[annee][semestre]) {
-          for (const module in isetComData[annee][semestre][matiere]) {
-            const inputLabel = document.createElement("label");
-            inputLabel.textContent = `${matiere}`;
-            inputLabel.className = "block text-gray-700 font-bold mb-2";
-            const spanInput = document.createElement("span");
-            spanInput.textContent = ` --> ${module}`;
-            spanInput.className = "text-red-500";
-            inputLabel.appendChild(spanInput);
-            const inputField = document.createElement("input");
-            inputField.type = "number";
-            inputField.id = `${annee}_${semestre}_${matiere.replace(/\s+/g, '')}_${module.replace(/\s+/g, '')}`; // ID unique
-            inputField.min = "0";
-            inputField.max = "20";
-            inputField.className = "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4";
-
-            modulesDiv.appendChild(inputLabel);
-            modulesDiv.appendChild(inputField);
-          }
+        if (!annee || !semestre || !specialite) {
+          document.getElementById("resultat").textContent =
+            "Veuillez sélectionner une année, une spécialité et un semestre.";
+          return;
         }
-      }
-    }
 
-    function calculerMoyenne() {
-      const annee = document.getElementById("anneeSelect").value;
-      const semestre = document.getElementById("semestreSelect").value;
-      let sommeNotesCoefficients = 0;
-      let sommeCoefficients = 0;
+        const modules = isetComData[annee][specialite][semestre];
 
-      if (isetComData[annee] && isetComData[annee][semestre]) {
-        for (const matiere in isetComData[annee][semestre]) {
-          for (const module in isetComData[annee][semestre][matiere]) {
-            const note = parseFloat(document.getElementById(`${annee}_${semestre}_${matiere.replace(/\s+/g, '')}_${module.replace(/\s+/g, '')}`).value) || 0;
-            const coefficient = isetComData[annee][semestre][matiere][module].coefficient;
-            const credits = isetComData[annee][semestre][matiere][module].credits;
-
-            sommeNotesCoefficients += note * coefficient;
-            sommeCoefficients += coefficient * credits;
-          }
+        if (!modules || modules.length === 0) {
+          document.getElementById("resultat").textContent =
+            "Aucun module trouvé pour cette sélection.";
+          return;
         }
+
+        modules.forEach((module) => {
+          const noteInputId = `${annee}_${specialite}_${semestre}_${module.matiere.replace(
+            /\s+/g,
+            ""
+          )}_${module.module.replace(/\s+/g, "")}`;
+          const note = parseFloat(document.getElementById(noteInputId).value);
+          if (isNaN(note)) {
+            document.getElementById(
+              "resultat"
+            ).textContent = `Note invalide pour le module: ${module.module}`;
+            error = true;
+            return;
+          }
+
+          sommeNotesCoefficients += note * module.coefficient;
+          sommeCoefficients += module.coefficient;
+        });
+
+        if (error) return;
 
         const moyenne = sommeNotesCoefficients / sommeCoefficients;
-        document.getElementById("resultat").textContent = `Moyenne du ${semestre} de la ${annee} : ${moyenne.toFixed(2)}`;
-      } else {
-        document.getElementById("resultat").textContent = "Veuillez sélectionner une année et un semestre.";
+        document.getElementById(
+          "resultat"
+        ).textContent = `Moyenne du ${semestre} de la ${annee} (${specialite}) : ${moyenne.toFixed(
+          2
+        )}`;
       }
-    }
-  </script>
-</body>
+    </script>
+  </body>
 </html>
