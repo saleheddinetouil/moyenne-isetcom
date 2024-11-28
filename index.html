@@ -18,71 +18,70 @@
 <link rel="icon" href="https://www.isetcom.tn/media/image?i=202207-1/5wYYD@WqPVHyPhckmkKLii8ZHotuVe-$cKDo32JM.jpeg">
 </head>
 <body class="bg-gray-100 font-sans">
-<div class="container mx-auto p-8">
-  <div class="flex items-center justify-center mb-8 bg-gray-400 p-6 rounded-lg shadow-md">
-    <a target="_blank" href="https://isetcom.tn/" class="text-blue-500 hover:text-blue-700">
-      <img src="https://isetcom.tn/public/servlet/configFile/globalConfiguration_VRhU2ECldg82u4lFqBcBY6Kq7eDHJwdQhilWn41RMVZ3F5FASd.png/PUBLIC_SITE/LOGO" alt="ISET'Com" class="w-64 h-16 sm:h-24">
-    </a>
-  </div>
+<div class="container mx-auto p-4 md:p-8">
+  <header class="mb-8">
+    <div class="flex items-center justify-center mb-4">
+      <a target="_blank" href="https://isetcom.tn/" class="text-blue-500 hover:text-blue-700">
+        <img src="https://isetcom.tn/public/servlet/configFile/globalConfiguration_VRhU2ECldg82u4lFqBcBY6Kq7eDHJwdQhilWn41RMVZ3F5FASd.png/PUBLIC_SITE/LOGO" alt="ISET'Com" class="w-48 h-12 md:w-64 md:h-16 lg:h-24">
+      </a>
+    </div>
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-2">Calculatrice de Moyenne ISET'Com</h1>
+    <p class="text-center text-gray-600">Calculez facilement votre moyenne.</p>
+  </header>
+
 
   <div class="bg-white p-6 rounded-lg shadow-md">
-    <div class="mb-4">
-      <label for="anneeSelect" class="block text-gray-700 font-bold mb-2">Année:</label>
-      <select id="anneeSelect" onchange="updateSpecialities()" class="form-select block w-full appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-        <option value="">--Sélectionnez--</option>
-        <option value="1ere Année">1ère Année</option>
-        <option value="2eme Année">2ème Année</option>
-        <option value="3eme Année">3ème Année</option>
-      </select>
-    </div>
-    <div class="mb-4">
-      <label for="specialiteSelect" class="block text-gray-700 font-bold mb-2">Licence / Spécialité:</label>
-      <select id="specialiteSelect" onchange="updateSemesters()" class="form-select block w-full appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-        <option value="">--Sélectionnez--</option>
-      </select>
-    </div>
-    <div class="mb-4">
-      <label for="semestreSelect" class="block text-gray-700 font-bold mb-2">Semestre:</label>
-      <select id="semestreSelect" onchange="updateModules()" class="form-select block w-full appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-        <option value="">--Sélectionnez--</option>
-      </select>
-    </div>
-
-    <div id="modules" class="mb-6"></div>
-    <div class="flex justify-center">
-      <button onclick="calculerMoyenne()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Calculer</button>
-      <button onclick="location.reload()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4">Réinitialiser</button>
-    </div>
-    <p id="resultat" class="mt-4 text-lg font-semibold"></p>
-
-    <!-- Guide Downloads Section -->
-    <div class="mt-6">
-      <h2 class="text-xl font-bold mb-2">Guides</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <a target="_blank" href="files/stic.pdf" class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-blue-500" download="files/stic.pdf">STIC Tronc Commun</a>
-          </div>
-          <div>
-          <a target="_blank" href="files/sticrst.pdf" class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-blue-500" download="files/sticrst.pdf">STIC RST</a>
-          </div>
-          <div>
-          <a target="_blank" href="files/sticsr.pdf" class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-blue-500" download="files/sticsr.pdf">STIC SR</a>
-          </div>
-          <div>
-          <a target="_blank" href="files/gtic.pdf" class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-blue-500" download="files/gtic.pdf">GTIC</a>
-        </div>
-
+    <form>
+      <div class="mb-4">
+        <label for="anneeSelect" class="block text-gray-700 font-bold mb-2">Année:</label>
+        <select id="anneeSelect" onchange="updateSpecialities()" class="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+          <option value="">--Sélectionnez--</option>
+          <option value="1ere Année">1ère Année</option>
+          <option value="2eme Année">2ème Année</option>
+          <option value="3eme Année">3ème Année</option>
+        </select>
       </div>
-    </div>
+      <div class="mb-4">
+        <label for="specialiteSelect" class="block text-gray-700 font-bold mb-2">Licence / Spécialité:</label>
+        <select id="specialiteSelect" onchange="updateSemesters()" class="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+          <option value="">--Sélectionnez--</option>
+        </select>
+      </div>
+      <div class="mb-4">
+        <label for="semestreSelect" class="block text-gray-700 font-bold mb-2">Semestre:</label>
+        <select id="semestreSelect" onchange="updateModules()" class="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+          <option value="">--Sélectionnez--</option>
+        </select>
+      </div>
 
+      <div id="modules" class="mb-6"></div>
+      <div class="flex justify-center space-x-4">
+        <button type="button" onclick="calculerMoyenne()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Calculer</button>
+        <button type="button" onclick="location.reload()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Réinitialiser</button>
+      </div>
+      <p id="resultat" class="mt-4 text-lg font-semibold text-center"></p>
+    </form>
   </div>
+
+  <!-- Guide Downloads Section -->
+  <div class="mt-6 bg-white p-6 rounded-lg shadow-md">
+    <h2 class="text-xl font-bold mb-4">Guides</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <a target="_blank" href="files/stic.pdf" class="block bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-blue-500" download="files/stic.pdf">STIC Tronc Commun</a>
+      <a target="_blank" href="files/sticrst.pdf" class="block bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-blue-500" download="files/sticrst.pdf">STIC RST</a>
+      <a target="_blank" href="files/sticsr.pdf" class="block bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-blue-500" download="files/sticsr.pdf">STIC SR</a>
+      <a target="_blank" href="files/gtic.pdf" class="block bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-blue-500" download="files/gtic.pdf">GTIC</a>
+    </div>
+  </div>
+
 </div>
 
-<footer class="text-center text-gray-600 text-sm mt-8 mb-8">
-  <div class="text-center text-gray-600 text-sm mt-8">
+<footer class="text-center text-gray-600 text-sm mt-8 py-4">
+  <div>
     © <script>document.write(new Date().getFullYear());</script> <a href="mailto:saleh.touil@icloud.com" class="text-blue-500 hover:text-blue-700">Saleh Eddine Touil</a>. Tous droits réservés.
   </div>
 </footer>
+
 
     <script>
       const isetComData = {
