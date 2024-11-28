@@ -16,25 +16,84 @@
 
 <meta name="keywords" content="ISET'Com, Calcul moyenne, Moyenne, ISET'Com Moyenne">
 <link rel="icon" href="https://www.isetcom.tn/media/image?i=202207-1/5wYYD@WqPVHyPhckmkKLii8ZHotuVe-$cKDo32JM.jpeg">
+
+<!-- Added Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Added Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Added Animations -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- Custom Styles -->
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+    
+    .glass-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 1rem;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        transition: transform 0.3s ease;
+    }
+    
+    .glass-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .custom-input {
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+    
+    .custom-input:focus {
+        border-color: #4F46E5;
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+    
+    .custom-button {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .custom-button:hover {
+        transform: translateY(-2px);
+    }
+    
+    .loading {
+        animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
 </head>
-<body class="bg-gray-100 font-sans">
-<div class="container mx-auto p-4 md:p-8">
-  <header class="mb-8">
-    <div class="flex items-center justify-center mb-4">
-      <a target="_blank" href="https://isetcom.tn/" class="text-blue-500 hover:text-blue-700">
+<body class="min-h-screen py-8">
+<div class="container mx-auto px-4 max-w-5xl">
+  <header class="mb-12" data-aos="fade-down">
+    <div class="flex items-center justify-center mb-6">
+      <a target="_blank" href="https://isetcom.tn/" class="transform hover:scale-105 transition-transform">
         <img src="https://isetcom.tn/public/servlet/configFile/globalConfiguration_VRhU2ECldg82u4lFqBcBY6Kq7eDHJwdQhilWn41RMVZ3F5FASd.png/PUBLIC_SITE/LOGO" alt="ISET'Com" class="w-48 h-12 md:w-64 md:h-16 lg:h-24">
       </a>
     </div>
-  
   </header>
 
 
-  <div class="bg-white p-6 rounded-lg shadow-md">
+  <div class="glass-card p-8 mb-8" data-aos="fade-up">
     <h2 class="text-xl font-bold mb-4">Calcul de Moyenne</h2>
     <form>
-      <div class="mb-4">
-        <label for="anneeSelect" class="block text-gray-700 font-bold mb-2">Année:</label>
-        <select id="anneeSelect" onchange="updateSpecialities()" class="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+      <div class="mb-6">
+        <label for="anneeSelect" class="block text-gray-700 font-semibold mb-2">
+          <i class="fas fa-calendar-alt mr-2"></i>Année
+        </label>
+        <select id="anneeSelect" onchange="updateSpecialities()" class="custom-input w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500">
           <option value="">--Sélectionnez--</option>
           <option value="1ere Année">1ère Année</option>
           <option value="2eme Année">2ème Année</option>
@@ -64,9 +123,11 @@
   </div>
 
   <!-- Guide Downloads Section -->
-  <div class="mt-6 bg-white p-6 rounded-lg shadow-md">
-    <h2 class="text-xl font-bold mb-4">Guides</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div class="glass-card p-8" data-aos="fade-up" data-aos-delay="100">
+    <h2 class="text-2xl font-bold mb-6 flex items-center">
+      <i class="fas fa-book-open mr-3"></i>Guides
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <a target="_blank" href="files/stic.pdf" class="block bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-blue-500" download="files/stic.pdf">STIC Tronc Commun</a>
       <a target="_blank" href="files/sticrst.pdf" class="block bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-blue-500" download="files/sticrst.pdf">STIC RST</a>
       <a target="_blank" href="files/sticsr.pdf" class="block bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-blue-500" download="files/sticsr.pdf">STIC SR</a>
@@ -76,15 +137,21 @@
 
 </div>
 
-<footer class="text-center text-gray-600 text-sm mt-8 py-4">
+<footer class="text-center text-gray-600 text-sm mt-8 py-4" data-aos="fade-up" data-aos-delay="200">
   <div>
     © <script>document.write(new Date().getFullYear());</script> <a href="mailto:saleh.touil@icloud.com" class="text-blue-500 hover:text-blue-700">Saleh Eddine Touil</a>. Tous droits réservés.
   </div>
 </footer>
 
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      const isetComData = {
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        
+        const isetComData = {
         "1ere Année": {
           STIC: {
             "Semestre 1": [
@@ -1298,53 +1365,62 @@
       }
 
       function calculerMoyenne() {
-        const annee = document.getElementById("anneeSelect").value;
-        const semestre = document.getElementById("semestreSelect").value;
-        const specialite = document.getElementById("specialiteSelect").value;
-        let sommeNotesCoefficients = 0;
-        let sommeCoefficients = 0;
-        let error = false;
+        const resultat = document.getElementById('resultat');
+        resultat.innerHTML = '<i class="fas fa-spinner loading"></i> Calcul en cours...';
+        
+        setTimeout(() => {
+            const annee = document.getElementById("anneeSelect").value;
+            const semestre = document.getElementById("semestreSelect").value;
+            const specialite = document.getElementById("specialiteSelect").value;
+            let sommeNotesCoefficients = 0;
+            let sommeCoefficients = 0;
+            let error = false;
 
-        if (!annee || !semestre || !specialite) {
-          document.getElementById("resultat").textContent =
-            "Veuillez sélectionner une année, une spécialité et un semestre.";
-          return;
-        }
+            if (!annee || !semestre || !specialite) {
+              document.getElementById("resultat").textContent =
+                "Veuillez sélectionner une année, une spécialité et un semestre.";
+              return;
+            }
 
-        const modules = isetComData[annee][specialite][semestre];
+            const modules = isetComData[annee][specialite][semestre];
 
-        if (!modules || modules.length === 0) {
-          document.getElementById("resultat").textContent =
-            "Aucun module trouvé pour cette sélection.";
-          return;
-        }
+            if (!modules || modules.length === 0) {
+              document.getElementById("resultat").textContent =
+                "Aucun module trouvé pour cette sélection.";
+              return;
+            }
 
-        modules.forEach((module) => {
-          const noteInputId = `${annee}_${specialite}_${semestre}_${module.matiere.replace(
-            /\s+/g,
-            ""
-          )}_${module.module.replace(/\s+/g, "")}`;
-          const note = parseFloat(document.getElementById(noteInputId).value);
-          if (isNaN(note)) {
+            modules.forEach((module) => {
+              const noteInputId = `${annee}_${specialite}_${semestre}_${module.matiere.replace(
+                /\s+/g,
+                ""
+              )}_${module.module.replace(/\s+/g, "")}`;
+              const note = parseFloat(document.getElementById(noteInputId).value);
+              if (isNaN(note)) {
+                document.getElementById(
+                  "resultat"
+                ).textContent = `Note invalide pour le module: ${module.module}`;
+                error = true;
+                return;
+              }
+
+              sommeNotesCoefficients += note * module.coefficient;
+              sommeCoefficients += module.coefficient;
+            });
+
+            if (error) return;
+
+            const moyenne = sommeNotesCoefficients / sommeCoefficients;
             document.getElementById(
               "resultat"
-            ).textContent = `Note invalide pour le module: ${module.module}`;
-            error = true;
-            return;
-          }
-
-          sommeNotesCoefficients += note * module.coefficient;
-          sommeCoefficients += module.coefficient;
-        });
-
-        if (error) return;
-
-        const moyenne = sommeNotesCoefficients / sommeCoefficients;
-        document.getElementById(
-          "resultat"
-        ).textContent = `Moyenne du ${semestre} de la ${annee} (${specialite}) : ${moyenne.toFixed(
-          2
-        )}`;
+            ).textContent = `Moyenne du ${semestre} de la ${annee} (${specialite}) : ${moyenne.toFixed(
+              2
+            )}`;
+            
+            // Add success animation
+            resultat.classList.add('animate-bounce');
+            setTimeout(() => resultat.classList.remove('animate-bounce'), 1000);
+        }, 500);
       }
     </script>
   </body>
