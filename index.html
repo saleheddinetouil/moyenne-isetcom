@@ -1426,7 +1426,7 @@
         updateModules(); //update modules when semester changes
       }
 
-      function updateModules() {
+    function updateModules() {
     const modulesDiv = document.getElementById("modules");
     modulesDiv.innerHTML = "";
     const annee = document.getElementById("anneeSelect").value;
@@ -1435,12 +1435,18 @@
 
     if (annee && semestre && specialite && isetComData[annee] && isetComData[annee][specialite] && isetComData[annee][specialite][semestre]) {
         const modules = isetComData[annee][specialite][semestre];
+        let currentMatiere = "";
+        let matiereCount = 0;
         modules.forEach((module, index) => {
-            const romanNumeral = toRoman(index + 1);
+            if (module.matiere !== currentMatiere) {
+                currentMatiere = module.matiere;
+                matiereCount++;
+                modulesDiv.innerHTML += `<h3 class="font-bold text-lg mt-4">${toRoman(matiereCount)}. ${module.matiere}</h3>`;
+            }
             modulesDiv.innerHTML += `
               <div class="mb-4">
                 <label for="${annee}_${specialite}_${semestre}_${module.matiere.replace(/\s+/g, "")}_${module.module.replace(/\s+/g, "")}" class="block text-gray-700 font-bold mb-2">
-                  ${romanNumeral} (${index + 1}) ${module.matiere} - ${module.module}
+                  ${index + 1}. ${module.module}
                 </label>
                 <input
                   id="${annee}_${specialite}_${semestre}_${module.matiere.replace(/\s+/g, "")}_${module.module.replace(/\s+/g, "")}"
@@ -1479,6 +1485,8 @@ function toRoman(num) {
     }
     return roman;
 }
+
+    
       function calculerMoyenne() {
         const resultat = document.getElementById('resultat');
         resultat.innerHTML = '<i class="fas fa-spinner loading"></i> Calcul en cours...';
