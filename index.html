@@ -1,196 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calcul de Moyenne ISET'Com</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<meta name="description" content="Calcul de Moyenne ISET'Com">
-<meta name="author" content="Saleh Eddine Touil">
-<!-- Facebook Meta Tags -->
-<meta property="og:url" content="https://saleheddinetouil.github.io/moyenne-isetcom/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Calcul de Moyenne ISET'Com">
-<meta property="og:description" content="Calcul de Moyenne ISET'Com">
-<meta property="og:image" content="https://masterpiecer-images.s3.yandex.net/b08e69b27e0b11eeb532aaafe6635749:upscaled">
-
-<meta name="keywords" content="ISET'Com, Calcul moyenne, Moyenne, ISET'Com Moyenne">
-<link rel="icon" href="https://www.isetcom.tn/media/image?i=202207-1/5wYYD@WqPVHyPhckmkKLii8ZHotuVe-$cKDo32JM.jpeg">
-
-<!-- Added Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- Added Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<!-- Added Animations -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-<!-- Custom Styles -->
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcul de Moyenne ISET'Com</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <style>
     body {
-        font-family: 'Poppins', sans-serif;
-        background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
-        color: #333;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
+      color: #333;
+      min-height: 100vh; /* Ensure the background covers the entire screen height */
+      display: flex;
+      flex-direction: column; /* Align content vertically */
     }
-
     .glass-card {
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(10px);
-        border-radius: 1rem;
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
-        transition: transform 0.3s ease-in-out;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+      padding: 2rem; /* Increased padding for better spacing */
+      margin-bottom: 2rem;
     }
-
-    .glass-card:hover {
-        transform: translateY(-5px);
-    }
-
     .custom-input {
-        transition: all 0.3s ease;
-        border: 2px solid #ccc;
+      border: 2px solid #ccc;
+      border-radius: 0.5rem;
+      padding: 0.5rem 1rem;
     }
-
     .custom-input:focus {
-        border-color: #00897b;
-        box-shadow: 0 0 0 3px rgba(0, 137, 123, 0.2);
+      border-color: #00897b;
+      outline: none; /* Remove default focus outline */
+      box-shadow: 0 0 0 0.2rem rgba(0, 137, 123, 0.2);
     }
-
     .custom-button {
-        transition: all 0.3s ease-in-out;
-        position: relative;
-        overflow: hidden;
-        background-color: #00897b;
-        border: none;
-        color: #fff;
+      background-color: #00897b;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      border: none;
+      cursor: pointer;
     }
-
     .custom-button:hover {
-        background-color: #00695c;
-        transform: translateY(-2px);
+      background-color: #00695c;
     }
-
     .loading {
-        animation: spin 1s linear infinite;
+      animation: spin 1s linear infinite;
     }
-
     @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
-
-    .menu-overlay {
-        background-color: rgba(0, 0, 0, 0.5);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease-in-out;
+    .download-link {
+      display: inline-block;
+      background-color: #4CAF50; /* Green */
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 10px;
+      transition: background-color 0.3s;
     }
-
-    .menu-overlay.active {
-        opacity: 1;
-        visibility: visible;
+    .download-link:hover {
+      background-color: #45a049;
     }
-
-    .menu-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.5rem;
-        border-radius: 0.375rem;
-        background-color: transparent;
-        transition: background-color 0.2s;
+    .guide-container{
+        margin-top: 2rem;
     }
-
-    .menu-button:hover {
-        background-color: rgba(0, 0, 0, 0.1);
-    }
-
-    .header-logo img {
-        width: 200px;
-    }
-
-    .header-logo {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .header-logo a {
-        transition: transform 0.3s;
-    }
-
-    .header-logo a:hover {
-        transform: scale(1.1);
-    }
-</style>
+  </style>
 </head>
-<body class="min-h-screen py-8">
-<div class="container mx-auto px-4 max-w-5xl">
-  <header class="mb-12 relative" data-aos="fade-down">
-    <div class="flex items-center justify-between mb-6">
-      <div class="header-logo">
-        <a target="_blank" href="https://isetcom.tn/" class="transform hover:scale-105 transition-transform">
-          <img src="https://isetcom.tn/public/servlet/configFile/globalConfiguration_VRhU2ECldg82u4lFqBcBY6Kq7eDHJwdQhilWn41RMVZ3F5FASd.png/PUBLIC_SITE/LOGO" alt="ISET'Com">
-        </a>
+<body class="flex flex-col min-h-screen" data-aos-easing="ease-out-cubic">
+
+
+  <div class="container mx-auto px-4 max-w-5xl flex-grow">
+    <header class="mb-12 relative" data-aos="fade-down" data-aos-duration="1000">
+      <div class="flex items-center justify-between mb-6">
+        <div class="header-logo">
+          <a target="_blank" href="https://isetcom.tn/" class="transform hover:scale-105 transition-transform">
+            <img src="https://isetcom.tn/public/servlet/configFile/globalConfiguration_VRhU2ECldg82u4lFqBcBY6Kq7eDHJwdQhilWn41RMVZ3F5FASd.png/PUBLIC_SITE/LOGO" alt="ISET'Com" class="max-w-[200px]">
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="glass-card p-8 mb-8" data-aos="fade-up" data-aos-duration="1000">
+      <h2 class="text-xl font-bold mb-4">Calcul de Moyenne</h2>
+      <form>
+        <div class="mb-6">
+          <label for="anneeSelect" class="block text-gray-700 font-semibold mb-2">
+            <i class="fas fa-calendar-alt mr-2"></i> Année
+          </label>
+          <select id="anneeSelect" onchange="updateSpecialities()" class="custom-input w-full px-3 py-2 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            <option value="">--Sélectionnez--</option>
+            <option value="1ere Année">1ère Année</option>
+            <option value="2eme Année">2ème Année</option>
+            <option value="3eme Année">3ème Année</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="specialiteSelect" class="block text-gray-700 font-bold mb-2">
+            Licence / Spécialité:
+          </label>
+          <select id="specialiteSelect" onchange="updateSemesters()" class="custom-input w-full px-3 py-2 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            <option value="">--Sélectionnez--</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="semestreSelect" class="block text-gray-700 font-bold mb-2">
+            Semestre:
+          </label>
+          <select id="semestreSelect" onchange="updateModules()" class="custom-input w-full px-3 py-2 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            <option value="">--Sélectionnez--</option>
+          </select>
+        </div>
+
+        <div id="modules" class="mb-6"></div>
+        <div class="flex justify-center space-x-4">
+          <button type="button" onclick="calculerMoyenne()" class="custom-button py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            Calculer
+          </button>
+          <button type="button" onclick="location.reload()" class="custom-button bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            Réinitialiser
+          </button>
+        </div>
+        <p id="resultat" class="mt-4 text-lg font-semibold text-center"></p>
+      </form>
+    </div>
+
+    <div class="guide-container">
+      <h2 class="text-2xl font-bold mb-6 flex items-center" data-aos="fade-up" data-aos-duration="1000">
+        <i class="fas fa-book-open mr-3"></i> Guides
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <a href="files/gtic.pdf" class="download-link" download>GTIC</a>
+        <a href="files/stic.pdf" class="download-link" download>STIC</a>
+        <a href="files/sticsr.pdf" class="download-link" download>STIC SR</a>
+        <a href="files/sticrst.pdf" class="download-link" download>STIC RST</a>
       </div>
     </div>
-  </header>
-
-  <div class="glass-card p-8 mb-8" data-aos="fade-up">
-    <h2 class="text-xl font-bold mb-4">Calcul de Moyenne</h2>
-    <form>
-      <div class="mb-6">
-        <label for="anneeSelect" class="block text-gray-700 font-semibold mb-2">
-          <i class="fas fa-calendar-alt mr-2"></i>Année
-        </label>
-        <select id="anneeSelect" onchange="updateSpecialities()" class="custom-input w-full px-3 py-2 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-          <option value="">--Sélectionnez--</option>
-          <option value="1ere Année">1ère Année</option>
-          <option value="2eme Année">2ème Année</option>
-          <option value="3eme Année">3ème Année</option>
-        </select>
-      </div>
-      <div class="mb-4">
-        <label for="specialiteSelect" class="block text-gray-700 font-bold mb-2">Licence / Spécialité:</label>
-        <select id="specialiteSelect" onchange="updateSemesters()" class="w-full px-3 py-2 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-          <option value="">--Sélectionnez--</option>
-        </select>
-      </div>
-      <div class="mb-4">
-        <label for="semestreSelect" class="block text-gray-700 font-bold mb-2">Semestre:</label>
-        <select id="semestreSelect" onchange="updateModules()" class="w-full px-3 py-2 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-          <option value="">--Sélectionnez--</option>
-        </select>
-      </div>
-
-      <div id="modules" class="mb-6"></div>
-      <div class="flex justify-center space-x-4">
-        <button type="button" onclick="calculerMoyenne()" class="custom-button py-2 px-4 rounded focus:outline-none focus:shadow-outline">Calculer</button>
-        <button type="button" onclick="location.reload()" class="custom-button bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Réinitialiser</button>
-      </div>
-      <p id="resultat" class="mt-4 text-lg font-semibold text-center"></p>
-    </form>
   </div>
 
-  <!-- Guide Downloads Section -->
-  <div class="glass-card p-8" data-aos="fade-up" data-aos-delay="100">
-    <h2 class="text-2xl font-bold mb-6 flex items-center">
-      <i class="fas fa-book-open mr-3"></i>Guides
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <a target="_blank" href="files/stic.pdf" class="block bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-blue-500" download="files/stic.pdf">STIC Tronc Commun</a>
-      <a target="_blank" href="files/sticrst.pdf" class="block bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-blue-500" download="files/sticrst.pdf">STIC RST</a>
-      <a target="_blank" href="files/sticsr.pdf" class="block bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-blue-500" download="files/sticsr.pdf">STIC SR</a>
-      <a target="_blank" href="files/gtic.pdf" class="block bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-blue-500" download="files/gtic.pdf">GTIC</a>
+
+  <footer class="text-center text-gray-600 text-sm mt-auto py-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+    <div>
+      © <script>document.write(new Date().getFullYear());</script> <a href="mailto:saleh.touil@icloud.com" class="text-blue-500 hover:text-blue-700">Saleh Eddine Touil</a>. Tous droits réservés.
     </div>
-  </div>
-
-</div>
-
-<footer class="text-center text-gray-600 text-sm mt-8 py-4">
-  <div>
-    © <script>document.write(new Date().getFullYear());</script> <a href="mailto:saleh.touil@icloud.com" class="text-blue-500 hover:text-blue-700">Saleh Eddine Touil</a>. Tous droits réservés.
-  </div>
-</footer>
+  </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
