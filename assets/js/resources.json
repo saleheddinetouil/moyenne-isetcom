@@ -50,6 +50,41 @@
         "dateAdded": "2024-11-30",
         "downloads": 156,
         "rating": 4.5
+    },
+    {
+      "id": 4,
+      "title": "Les bases de la programmation Python",
+      "description": "Tutoriel complet pour débutants en Python",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=HWxBtxPBCAc",
+      "thumbnail": "https://i.ytimg.com/vi/HWxBtxPBCAc/hqdefault.jpg",
+      "department": "stic",
+      "semester": 1,
+      "speciality": "programmation",
+      "category": "tutorial",
+      "tags": ["Python", "Programmation", "Débutant"],
+      "author": "Formation Vidéo",
+      "dateAdded": "2024-01-15",
+      "downloads": 230,
+      "rating": 4.8
+    },
+    {
+      "id": 5,
+      "title": "Conception des bases de données",
+      "description": "Support de cours PDF sur la modélisation des données",
+      "type": "pdf",
+      "url": "resources/cours/bdd-conception.pdf",
+      "thumbnail": "images/pdf-thumb.png",
+      "department": "stic",
+      "semester": 2,
+      "speciality": "bases de données",
+      "category": "course",
+      "tags": ["SQL", "Modélisation", "BDD"],
+      "author": "Dr. Ahmed Ben Ali",
+      "dateAdded": "2024-01-10",
+      "downloads": 189,
+      "rating": 4.6
     }
+
   ]
 }
