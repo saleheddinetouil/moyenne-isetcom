@@ -210,3 +210,11 @@ textarea {
   -moz-appearance: none;
   appearance: none;
 }
+
+.text-green {
+  color: #00897b;
+}
+
+.text-green:hover {
+  color: #00695c;
+}
