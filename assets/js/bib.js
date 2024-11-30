@@ -1,6 +1,6 @@
 let resources = [];
 let currentPage = 1;
-const itemsPerPage = 9;
+const itemsPerPage = 4; // Changed from 9 to 4
 
 async function loadResources() {
     try {
@@ -18,7 +18,13 @@ function displayResources(filteredResources) {
     const container = document.getElementById('resourcesList');
     const totalPages = Math.ceil(filteredResources.length / itemsPerPage);
     const start = (currentPage - 1) * itemsPerPage;
-    const paginatedItems = filteredResources.slice(start, start + itemsPerPage);
+    const end = start + itemsPerPage;
+    const paginatedItems = filteredResources.slice(start, end);
+    
+    // Ensure currentPage doesn't exceed total pages
+    if (currentPage > totalPages) {
+        currentPage = totalPages || 1;
+    }
     
     // Clear previous content including pagination and count
     container.innerHTML = '';
@@ -27,10 +33,10 @@ function displayResources(filteredResources) {
     if (existingCount) existingCount.remove();
     if (existingPagination) existingPagination.remove();
     
-    // Add resource count
+    // Add resource count with corrected display numbers
     const countDiv = document.createElement('div');
     countDiv.className = 'resource-count mb-4';
-    countDiv.innerHTML = `Affichage de ${start + 1}-${Math.min(start + itemsPerPage, filteredResources.length)} sur ${filteredResources.length} ressources`;
+    countDiv.innerHTML = `Affichage de ${filteredResources.length > 0 ? start + 1 : 0}-${Math.min(end, filteredResources.length)} sur ${filteredResources.length} ressources`;
     container.parentElement.insertBefore(countDiv, container);
 
     if (paginatedItems.length === 0) {
@@ -138,9 +144,12 @@ function createPagination(totalPages) {
 }
 
 function changePage(page) {
-    currentPage = page;
-    filterResources();
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    const totalPages = Math.ceil(resources.length / itemsPerPage);
+    if (page >= 1 && page <= totalPages) {
+        currentPage = page;
+        filterResources();
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
 }
 
 function getStarRating(rating) {
