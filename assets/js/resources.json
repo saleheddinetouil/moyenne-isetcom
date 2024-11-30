@@ -66,24 +66,41 @@
       "author": "Formation Vidéo",
       "dateAdded": "2024-01-15",
       "downloads": 230,
-      "rating": 4.8
+      "rating": 3
     },
     {
       "id": 5,
-      "title": "Conception des bases de données",
-      "description": "Support de cours PDF sur la modélisation des données",
-      "type": "pdf",
-      "url": "resources/cours/bdd-conception.pdf",
-      "thumbnail": "images/pdf-thumb.png",
-      "department": "stic",
-      "semester": 2,
-      "speciality": "bases de données",
-      "category": "course",
-      "tags": ["SQL", "Modélisation", "BDD"],
-      "author": "Dr. Ahmed Ben Ali",
-      "dateAdded": "2024-01-10",
-      "downloads": 189,
-      "rating": 4.6
+      "title": "Apprendre le développement web",
+      "description": "Tutoriel complet pour débutants en HTML, CSS et JavaScript",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=9cKsq14Kfsw",
+      "thumbnail": "https://i.ytimg.com/vi/9cKsq14Kfsw/hqdefault.jpg",
+      "department": "gtic",
+      "semester": 1,
+      "speciality": "développement web",
+      "category": "tutorial",
+      "tags": ["HTML", "CSS", "JavaScript", "Développement Web"],
+      "author": "Formation Vidéo",
+      "dateAdded": "2024-01-15",
+      "downloads": 230,
+      "rating": 3
+    },
+    {
+      "id": 6,
+      "title": "Exercices de mathématiques",
+      "description": "Exercices corrigés en mathématiques",
+      "type": "exercice",
+      "url": "https://www.maths-et-tiques.fr/",
+      "thumbnail": "https://www.maths-et-tiques.fr/wp-content/uploads/2019/09/Logo-Maths-et-Tiques.png",
+      "department": "math",
+      "semester": 1,
+      "speciality": "mathématiques",
+      "category": "exercice",
+      "tags": ["Mathématiques", "Exercices", "Analyse"],
+      "author": "Maths et Tiques",
+      "dateAdded": "2024-01-15",
+      "downloads": 230,
+      "rating": 3
     }
 
   ]
