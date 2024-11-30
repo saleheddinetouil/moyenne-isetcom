@@ -105,7 +105,7 @@
       "rating": 4.2
     },
     {
-      "id": 7,
+      "id": 1000,
       "title": "Introduction aux Réseaux Informatiques",
       "description": "Cours complet sur les fondamentaux des réseaux",
       "type": "cours",
@@ -122,7 +122,7 @@
       "rating": 5
     },
     {
-      "id": 8,
+      "id": 1001,
       "title": "Introduction à la cybersécurité",
         "description": "Explorez le domaine passionnant de la cybersécurité.",
         "type": "cours",
@@ -139,7 +139,7 @@
         "rating": 4
     },
     {
-      "id": 9,
+      "id": 1002,
       "title": "Discovering Entrepreneurship",
         "description": "Build entrepreneurial skills and develop a solution-oriented approach to problem solving.",
         "type": "cours",
@@ -156,7 +156,7 @@
         "rating": 4.5
     },
     {
-      "id": 10,
+      "id": 1003,
       "title": "Data Analytics Essentials",
       "description": "Organizations all over the world recognize the value of analytics.",
       "type": "cours",
@@ -173,7 +173,7 @@
       "rating": 4.2
     },
     {
-      "id": 11,
+      "id": 1004,
       "title": "Drive Semestre 3 - STIC",
       "description": "Ce lien contient quelques documents ( cours , series , ds , examens).",
       "type": "drive",
