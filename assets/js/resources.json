@@ -110,7 +110,14 @@
       "url": "https://drive.google.com/drive/mobile/folders/1I69THZZm1K3nYI_ooGIfXpncGXSlu8I0?usp=sharing",
       "thumbnail": "https://www.teqiq.com/files/2022/10/google-drive1.jpg",
       "department": "stic",
-      "semester": 3
+      "semester": 3,
+      "speciality": "informatique",
+      "category": "drive",
+      "tags": ["Cours", "Séries", "DS", "Examens"],
+      "author": "",
+      "dateAdded": "2024-01-15",
+      "downloads": 230,
+      "rating": 4.9
     }
 
   ]

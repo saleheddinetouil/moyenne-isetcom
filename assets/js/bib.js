@@ -58,6 +58,9 @@ function displayResources(filteredResources) {
             case 'article':
                 button = 'Lire';
                 break;
+            case 'drive':
+                button = 'Accéder';
+                break;
             case 'presentation':
                 button = 'Voir';
                 break;
