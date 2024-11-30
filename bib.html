@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothèque ISET'COM</title>
+    <meta name="description" content="Bibliothèque ISET'COM" />
+    <meta name="author" content="Saleh Eddine Touil" />
+    <meta name="keywords" content="ISET'Com, Bibliothèque ISETCOM" />
+    <meta name="robots" content="index, follow" />
+    <!-- Icon PNG -->
+    <link rel="icon" type="image/png" href="assets/img/icon.png" />
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/bib.css">
+</head>
+<body class="flex flex-col min-h-screen" data-aos-easing="ease-out-cubic">
+    <div class="container mx-auto px-4 max-w-5xl flex-grow">
+        <header class="mb-12 mt-12 relative" data-aos="fade-down" data-aos-duration="1000">
+            <div class="flex items-center justify-between mb-6">
+                <div class="header-logo">
+                    <a href="index.html" class="transform hover:scale-105 transition-transform">
+                        <img src="assets/img/LOGO.png" alt="ISET'COM" class="max-w-[200px]">
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="glass-card p-8 mb-8" data-aos="fade-up" data-aos-duration="1000">
+            <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold mb-6">
+                <i class="fas fa-book-open mr-3"></i> Bibliothèque Numérique
+            </h2>
+            <!-- return icon -->
+            <a href="index.html" class="btn btn-primary mb-6">
+                <i class="fas fa-arrow-left mr-2"></i> Retour
+            </a>
+            </div>
+            <div class="filters-container">
+                <div class="filters">
+                    <div class="filter-group">
+                        <i class="fas fa-building"></i>
+                        <select id="departmentFilter">
+                            <option value="">Département</option>
+                            <option value="stic">STIC</option>
+                            <option value="gtic">GTIC</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <i class="fas fa-clock"></i>
+                        <select id="semesterFilter">
+                            <option value="">Semestre</option>
+                            <option value="1">S1</option>
+                            <option value="2">S2</option>
+                            <option value="3">S3</option>
+                            <option value="4">S4</option>
+                            <option value="5">S5</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <i class="fas fa-graduation-cap"></i>
+                        <select id="specialityFilter">
+                            <option value="">Spécialité</option>
+                            <option value="trc">Tronc commun</option>
+                            <option value="sr">SR</option>
+                            <option value="rst">RST</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <i class="fas fa-file"></i>
+                        <select id="typeFilter">
+                            <option value="">Type</option>
+                            <option value="cours">Cours</option>
+                            <option value="livre">Livre</option>
+                            <option value="document">Document</option>
+                            <option value="audio">Audio</option>
+                            <option value="pdf">PDF</option>
+                            <option value="video">Vidéo</option>
+                            <option value="image">Image</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loadingState" class="hidden text-center py-8">
+                <div class="loading-spinner"></div>
+                <p class="mt-4 text-gray-600">Chargement des ressources...</p>
+            </div>
+
+            <div id="resourcesList" class="resources-grid"></div>
+        </div>
+    </div>
+
+    <footer class="text-center text-gray-600 text-sm mt-auto py-4">
+        <div>
+            © <script>document.write(new Date().getFullYear());</script>
+            <a href="mailto:saleh.touil@icloud.com" class="text-blue-500 hover:text-blue-700">Saleh Eddine Touil</a>. 
+            Tous droits réservés.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/bib.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+{
+  "resources": [
+    {
+      "id": 1,
+      "title": "Introduction aux Réseaux Informatiques",
+      "description": "Cours complet sur les fondamentaux des réseaux",
+      "type": "cours",
+      "url": "https://www.netacad.com/courses/ccna-introduction-networks?courseLang=en-US",
+      "thumbnail": "https://www.netacad.com/p/ff9e491c-49be-4734-803e-a79e6e83dab1/eb792dca-e749-4a2c-9f6d-b7c5247509e5/image.png?ut=1700870400000",
+      "department": "stic",
+      "semester": 3,
+      "speciality": "réseaux",
+      "category": "course",
+      "tags": ["TCP/IP", "OSI", "Réseaux"],
+      "author": "",
+      "dateAdded": "2023-01-15",
+      "downloads": 156,
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "title": "Introduction à la cybersécurité",
+        "description": "Explorez le domaine passionnant de la cybersécurité.",
+        "type": "cours",
+        "url": "https://www.netacad.com/fr/courses/introduction-to-cybersecurity?courseLang=fr-FR",
+        "thumbnail": "https://www.netacad.com/p/ff9e491c-49be-4734-803e-a79e6e83dab1/7dc6e66c-935b-4905-b315-61b12ecb801a/image.png?ut=1613561424186",
+        "department": "stic",
+        "semester": 3,
+        "speciality": "sécurité",
+        "category": "course",
+        "tags": ["Cybersécurité", "Sécurité", "Réseaux"],
+        "author": "Netacad",
+        "dateAdded": "2024-11-30",
+        "downloads": 156,
+        "rating": 4
+    },
+    {
+      "id": 3,
+      "title": "Discovering Entrepreneurship",
+        "description": "Build entrepreneurial skills and develop a solution-oriented approach to problem solving.",
+        "type": "cours",
+        "url": "https://www.netacad.com/fr/courses/discovering-entrepreneurship?courseLang=en-US",
+        "thumbnail": "https://www.netacad.com/p/ff9e491c-49be-4734-803e-a79e6e83dab1/88a0de79-62b2-4f7e-a583-d19033033d72/image.png?ut=1680998400000",
+        "department": "gtic",
+        "semester": 3,
+        "speciality": "entrepreneuriat",
+        "category": "course",
+        "tags": ["Entrepreneuriat", "Business", "Management"],
+        "author": "Netacad",
+        "dateAdded": "2024-11-30",
+        "downloads": 156,
+        "rating": 4.5
+    }
+  ]
+}

@@ -148,3 +148,29 @@ body {
 .leaflet-control-attribution  {
     display: none;
 }
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+.faq-question {
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #f8f9fa;
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    transition: all 0.3s ease;
+}
