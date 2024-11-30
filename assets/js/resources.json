@@ -87,20 +87,20 @@
     },
     {
       "id": 6,
-      "title": "Exercices de mathématiques",
-      "description": "Exercices corrigés en mathématiques",
-      "type": "exercice",
-      "url": "https://www.maths-et-tiques.fr/",
-      "thumbnail": "https://www.maths-et-tiques.fr/wp-content/uploads/2019/09/Logo-Maths-et-Tiques.png",
-      "department": "stic",
-      "semester": 1,
-      "speciality": "mathématiques",
-      "category": "exercice",
-      "tags": ["Mathématiques", "Exercices", "Analyse"],
-      "author": "Maths et Tiques",
+      "title": "Data Analytics Essentials",
+      "description": "Organizations all over the world recognize the value of analytics.",
+      "type": "cours",
+      "url": "https://www.netacad.com/fr/courses/data-analytics-essentials?courseLang=en-US",
+      "thumbnail": "https://www.netacad.com/p/ff9e491c-49be-4734-803e-a79e6e83dab1/ccd24c0e-1253-4cf7-a5b6-30a04c5731d6/image.png?ut=1676506424339",
+      "department": "gtic",
+      "semester": 3,
+      "speciality": "programmation",
+      "category": "course",
+      "tags": ["Python", "Programmation", "Débutant"],
+      "author": "Netacad",
       "dateAdded": "2024-01-15",
       "downloads": 230,
-      "rating": 3
+      "rating": 4.2
     }
 
   ]
