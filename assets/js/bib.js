@@ -50,40 +50,52 @@ function displayResources(filteredResources) {
         card.className = 'resource-card skeleton';
         card.setAttribute('data-aos', 'fade-up');
         card.setAttribute('data-aos-delay', (index * 100).toString());
+        let icon = '';
         let button = '';
         switch (resource.type) {
             case 'livre':
                 button = 'Télécharger';
+                icon = '<i class="fas fa-book"></i>';
                 break;
             case 'article':
                 button = 'Lire';
+                icon = '<i class="fas fa-newspaper"></i>';
                 break;
             case 'drive':
                 button = 'Accéder';
+                icon = '<i class="fas fa-arrow-right"></i>';
                 break;
             case 'presentation':
                 button = 'Voir';
+                icon = '<i class="fas fa-presentation"></i>';
                 break;
             case 'pdf':
                 button = 'Télécharger';
+                icon = '<i class="fas fa-file-pdf"></i>';
                 break;
             case 'audio':
                 button = 'Écouter';
+                icon = '<i class="fas fa-headphones"></i>';
                 break;
             case 'cours':
                 button = 'Voir';
+                icon = '<i class="fas fa-chalkboard-teacher"></i>';
                 break;
             case 'exercice':
                 button = 'Voir';
+                icon = '<i class="fas fa-tasks"></i>';
                 break;
             case 'video':
                 button = 'Voir';
+                icon = '<i class="fas fa-video"></i>';
                 break;
             case 'autre':
                 button = 'Voir';
+                icon = '<i class="fas fa-file-alt"></i>';
                 break;
             default:
                 button = 'Télécharger';
+                icon = '<i class="fas fa-download"></i>';
         }
 
         card.innerHTML = `
@@ -98,7 +110,7 @@ function displayResources(filteredResources) {
                     </div>
                     <!--
                     <div class="download-count">
-                        <i class="fas fa-download"></i> ${resource.downloads}
+                    ${icon} ${resource.downloads}
                     </div>
                     -->
                     <a href="${resource.url}" class="download-btn mt-4 block" target="_blank">
