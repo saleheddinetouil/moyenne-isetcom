@@ -4,7 +4,7 @@ const itemsPerPage = 9;
 
 async function loadResources() {
     try {
-        const response = await fetch('../files/resources.json');
+        const response = await fetch('files/resources.json');
         const data = await response.json();
         resources = data.resources;
         displayResources(resources);
