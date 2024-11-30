@@ -11,7 +11,7 @@
     backdrop-filter: blur(10px);
     border-radius: 1rem;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
-    padding: 20px;
+    padding: 15px;
     margin-bottom: 30px;
 }
 
@@ -248,4 +248,92 @@
 .no-results {
     color: var(--primary-color);
     border: 1px solid var(--primary-bg);
+}
+
+@media (max-width: 768px) {
+    .filters-container {
+        padding: 10px;
+    }
+
+    .filters {
+        gap: 10px;
+    }
+
+    .filter-group {
+        min-width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .filter-group select {
+        padding: 12px 40px;  /* Increased left padding */
+        font-size: 14px;
+        height: 45px;
+    }
+
+    .filter-group i {
+        left: 15px;
+        font-size: 14px;
+    }
+
+    .search-bar {
+        margin-bottom: 15px;
+    }
+
+    .search-bar input {
+        padding: 12px 40px;  /* Increased left padding */
+        font-size: 14px;
+        height: 45px;
+    }
+
+    .search-bar i {
+        left: 15px;
+        font-size: 14px;
+    }
+
+    /* Adjust resource cards for mobile */
+    .resources-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    /* Adjust pagination for mobile */
+    .pagination-controls {
+        gap: 5px;
+        flex-wrap: wrap;
+        padding: 0.5rem;
+    }
+
+    .pagination-controls button {
+        padding: 6px 12px;
+        font-size: 14px;
+        min-width: 35px;
+    }
+}
+
+/* Add touch-friendly improvements */
+@media (hover: none) {
+    .filter-group select,
+    .search-bar input {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    .filter-group select:focus,
+    .search-bar input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+    }
+
+    .download-btn {
+        padding: 12px 20px; /* Larger touch target */
+    }
+}
+
+/* Fix iOS Safari specific issues */
+@supports (-webkit-touch-callout: none) {
+    .filter-group select,
+    .search-bar input {
+        font-size: 16px; /* Prevent zoom on focus */
+    }
 }
