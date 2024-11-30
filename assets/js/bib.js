@@ -1,6 +1,6 @@
 let resources = [];
 let currentPage = 1;
-const itemsPerPage = 4; // Changed from 9 to 4
+const itemsPerPage = 8; // Changed from 9 to 4
 
 async function loadResources() {
     try {
