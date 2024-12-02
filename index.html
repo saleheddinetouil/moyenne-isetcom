@@ -168,76 +168,97 @@
             <p id="resultat" class="mt-4 text-lg font-semibold text-center"></p>
           </form>
         </div>
+<!--
+        <div class="glass-card p-8 mb-8" data-aos="fade-up" data-aos-duration="1000">
+          <h3 class="text-xl font-bold mb-4">
+              <i class="fas fa-info-circle mr-2"></i> Règles de Validation
+          </h3>
+          <ul class="list-disc pl-5 space-y-2">
+              <li>Une matière est validée si la moyenne est ≥ 10/20</li>
+              <li>Chaque module doit avoir une note ≥ 8/20</li>
+              <li>Les crédits sont attribués uniquement si la matière est validée</li>
+          </ul>
+        </div>
+-->
+        <!-- Student Services Hub -->
+        <div id="services-hub" class="glass-card p-8 mb-8" data-aos="fade-up">
+            <h2 class="text-2xl font-bold mb-6">
+                <i class="fas fa-graduation-cap mr-3"></i> Services Étudiants
+            </h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-book-reader text-4xl mb-4"></i>
+                    <h3>Bibliothèque Numérique</h3>
+                    <p>Accès aux ressources académiques</p>
+                    <a href="bib.html" class="service-btn">Explorer</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-users text-4xl mb-4"></i>
+                    <h3>Communauté</h3>
+                    <p>Forum et entraide étudiante</p>
+                    <a href="https://www.facebook.com/groups/377145616641546" class="service-btn">Rejoindre</a>
+                </div>
+            </div>
+        </div>
 
 
         <!-- Enhanced Guide Section -->
         <div class="guide-container glass-card p-8 mb-8">
-            <h2
-            class="text-2xl font-bold mb-6 flex items-center"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <i class="fas fa-book-open mr-3"></i> Guides
-          </h2>
-          <div
-            class="mb-6"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-delay="100"
-          >
-            <img src="assets/img/cursus.PNG" alt="Cursus" class="w-full h-auto" />
-          </div>
-          <div
-            class="speciality-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-delay="200"
-          >
-            <div class="directions-btn spec-card p-6 rounded-lg shadow-lg bg-white transition-transform hover:scale-105" >
-                    <h3 class="text-xl font-bold mb-4">GTIC</h3>
-                    
-                    <a href="files/gtic.pdf" class="download-button" download>
-                        Guide <i class="fas fa-download ml-2"></i>
-                    </a>
-                </div>
-                <div class="directions-btn spec-card p-6 rounded-lg shadow-lg bg-white transition-transform hover:scale-105">
-                    <h3 class="text-xl font-bold mb-4">STIC</h3>
-                    
-                    <a href="files/stic.pdf" class="download-button" download>
-                        Guide <i class="fas fa-download ml-2"></i>
-                    </a>
-                </div>
-                <div class="directions-btn spec-card p-6 rounded-lg shadow-lg bg-white transition-transform hover:scale-105">
-                    <h3 class="text-xl font-bold mb-4">STIC SR</h3>
-                   
-                    <a href="files/sticsr.pdf" class="download-button" download>
-                        Guide <i class="fas fa-download ml-2"></i>
-                    </a>
-                </div>
-                <div class="directions-btn spec-card  p-6 rounded-lg shadow-lg bg-white transition-transform hover:scale-105">
-                    <h3 class="text-xl font-bold mb-4">STIC RST</h3>
-                    
-                    <a href="files/sticrst.pdf" class="download-button" download>
-                        Guide <i class="fas fa-download ml-2"></i>
-                    </a>
-                </div>
-                
-          </div>
+          <h2
+          class="text-2xl font-bold mb-6 flex items-center"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <i class="fas fa-book-open mr-3"></i> Guides
+        </h2>
+        <div
+          class="speciality-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="200"
+        >
+          <div class="directions-btn flex  justify-between space-around spec-card p-6 rounded-lg shadow-lg bg-white transition-transform hover:scale-105" >
+                  <h3 class="text-xl font-bold mb-4">GTIC</h3>
+                  
+                  <a href="files/gtic.pdf" class="download-button text-xl" download>
+                       <i class="fas fa-download ml-2"></i>
+                  </a>
+              </div>
+              <div class="directions-btn flex  justify-between space-around spec-card p-6 rounded-lg shadow-lg bg-white transition-transform hover:scale-105">
+                  <h3 class="text-xl font-bold mb-4">STIC</h3>
+                  
+                  <a href="files/stic.pdf" class="download-button text-xl" download>
+                       <i class="fas fa-download ml-2"></i>
+                  </a>
+              </div>
+              <div class="directions-btn flex  justify-between space-around spec-card p-6 rounded-lg shadow-lg bg-white transition-transform hover:scale-105">
+                  <h3 class="text-xl font-bold mb-4">STIC SR</h3>
+                 
+                  <a href="files/sticsr.pdf" class="download-button text-xl" download>
+                       <i class="fas fa-download ml-2"></i>
+                  </a>
+              </div>
+              <div class="directions-btn flex  justify-between space-around spec-card  p-6 rounded-lg shadow-lg bg-white transition-transform hover:scale-105">
+                  <h3 class="text-xl font-bold mb-4">STIC RST</h3>
+                  
+                  <a href="files/sticrst.pdf" class="download-button text-xl" download>
+                       <i class="fas fa-download ml-2"></i>
+                  </a>
+              </div>
+              
         </div>
-        <!-- New Student Resources Section -->
-        <div id="resources" class="glass-card p-8 mb-8" data-aos="fade-up">
-            <h2 class="text-2xl font-bold mb-6">
-                <i class="fas fa-graduation-cap mr-3"></i> Resources Étudiants
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="resource-card p-6 rounded-lg shadow-lg bg-white">
-                    <i class="fas fa-book-open text-4xl text-green mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Bibliothèque Numérique</h3>
-                    <p class="text-gray-600 mb-4">Accédez à notre collection de ressources académiques.</p>
-                    <a href="bib.html" class="text-green hover:text-blue-700">Explorer →</a>
-                </div>
-                
-            </div>
+      </div>
+        <!-- Quick Access Floating Menu -->
+        <div class="floating-menu">
+            <a href="#calculator" class="menu-item" title="Calculateur">
+                <i class="fas fa-calculator"></i>
+            </a>
+            <a href="#services-hub" class="menu-item" title="Services">
+                <i class="fas fa-th"></i>
+            </a>
+            <a href="#map" class="menu-item" title="Campus">
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
         </div>
 
         <div

@@ -55,47 +55,47 @@ function displayResources(filteredResources) {
         switch (resource.type) {
             case 'livre':
                 button = 'Télécharger';
-                icon = '<i class="fas fa-book"></i>';
+                icon = '<i class="fas fa-book pr-2"></i>';
                 break;
             case 'article':
                 button = 'Lire';
-                icon = '<i class="fas fa-newspaper"></i>';
+                icon = '<i class="fas fa-newspaper pr-2"></i>';
                 break;
             case 'drive':
                 button = 'Accéder';
-                icon = '<i class="fas fa-arrow-right"></i>';
+                icon = '<i class="fas fa-arrow-right pr-2"></i>';
                 break;
             case 'presentation':
                 button = 'Voir';
-                icon = '<i class="fas fa-presentation"></i>';
+                icon = '<i class="fas fa-presentation pr-2"></i>';
                 break;
             case 'pdf':
                 button = 'Télécharger';
-                icon = '<i class="fas fa-file-pdf"></i>';
+                icon = '<i class="fas fa-file-pdf pr-2"></i>';
                 break;
             case 'audio':
                 button = 'Écouter';
-                icon = '<i class="fas fa-headphones"></i>';
+                icon = '<i class="fas fa-headphones pr-2"></i>';
                 break;
             case 'cours':
                 button = 'Voir';
-                icon = '<i class="fas fa-chalkboard-teacher"></i>';
+                icon = '<i class="fas fa-chalkboard-teacher pr-2"></i>';
                 break;
             case 'exercice':
                 button = 'Voir';
-                icon = '<i class="fas fa-tasks"></i>';
+                icon = '<i class="fas fa-tasks pr-2"></i>';
                 break;
             case 'video':
                 button = 'Voir';
-                icon = '<i class="fas fa-video"></i>';
+                icon = '<i class="fas fa-video pr-2"></i>';
                 break;
             case 'autre':
                 button = 'Voir';
-                icon = '<i class="fas fa-file-alt"></i>';
+                icon = '<i class="fas fa-file-alt pr-2"></i>';
                 break;
             default:
                 button = 'Télécharger';
-                icon = '<i class="fas fa-download"></i>';
+                icon = '<i class="fas fa-download pr-2"></i>';
         }
 
         card.innerHTML = `
@@ -110,11 +110,11 @@ function displayResources(filteredResources) {
                     </div>
                     <!--
                     <div class="download-count">
-                    ${icon} ${resource.downloads}
+                     ${resource.downloads}
                     </div>
                     -->
                     <a href="${resource.url}" class="download-btn mt-4 block" target="_blank">
-                    <i class="fas fa-download"></i> ${button}
+                    ${icon} ${button}
                 </a>
                 </div>
                 
