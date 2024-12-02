@@ -116,7 +116,7 @@ const isetComData = {
             matiere: "Physique",
             module: "Propagation des ondes électromagnétiques",
             coefficient: 1.5,
-            credits: 3,
+            credits: 2,
           },
           {
             matiere: "Physique",
@@ -1160,6 +1160,31 @@ const isetComData = {
             module: "Personnal branding and public speaking",
             coefficient: 0.5,
             credits: 1,
+          },
+          {
+            matiere: "Tendances managériales",
+            module: "Tendances marketing",
+            coefficient: 1,
+            credits: 2,
+          },
+          {
+            matiere: "Tendances managériales",
+            module: "Tendances Startup",
+            coefficient: 1,
+            credits: 2,
+
+          },
+          {
+            matiere: "Tendance des TIC",
+            module: "BI & Bigdata",
+            coefficient: 1,
+            credits: 2,
+          },
+          {
+            matiere: "Tendance des TIC",
+            module: "Intelligence artificielle",
+            coefficient: 1,
+            credits: 2,
           },
         ],
       },
