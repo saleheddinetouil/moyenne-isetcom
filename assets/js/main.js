@@ -26,7 +26,7 @@ function groupModulesByMatiere(modules) {
             };
         }
         matiereGroups[module.matiere].modules.push(module);
-        matiereGroups[module.matiere].totalCredits += module.coefficient;
+        matiereGroups[module.matiere].totalCredits += module.credits;
     });
     
     return matiereGroups;
@@ -166,7 +166,7 @@ function calculerMoyenne() {
     const modules = isetComData[annee][specialite][semestre];
     const matiereGroups = groupModulesByMatiere(modules);
 
-    // Calculate average for each matiere and check if credits are earned
+    // Calculate average for each matiere group and check if credits are earned
     for (const [matiere, group] of Object.entries(matiereGroups)) {
       let matiereTotal = 0;
       let matiereCoeff = 0;
@@ -185,9 +185,7 @@ function calculerMoyenne() {
         matiereTotal += note * module.coefficient;
         matiereCoeff += module.coefficient;
 
-        if (note < 8) { // If any module has less than 8, matiere is not validated
-          allModulesValid = false;
-        }
+
       });
 
       if (error) return;
@@ -198,10 +196,21 @@ function calculerMoyenne() {
       sommeNotesCoefficients += matiereTotal;
       sommeCoefficients += matiereCoeff;
 
-      // Check if matiere is validated (average >= 10 and all modules >= 8)
-      if (matiereAverage >= 10 && allModulesValid) {
+      // Award credits if matiere average >= 10 and all modules >= 8
+      if (matiereAverage >= 10 ) {
         totalCreditsEarned += group.totalCredits;
       }
+      else{
+        // credit only valid modules
+        group.modules.forEach(module => {
+          const noteInputId = `${annee}_${specialite}_${semestre}_${module.matiere.replace(/\s+/g, "")}_${module.module.replace(/\s+/g, "")}`;
+          const note = parseFloat(document.getElementById(noteInputId).value);
+          if (note >= 10) {
+            totalCreditsEarned += module.credits;
+          }
+        });
+      }
+
     }
 
     if (error) return;

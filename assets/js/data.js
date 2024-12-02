@@ -460,6 +460,25 @@ const isetComData = {
             coefficient: 1,
             credits: 2,
           },
+          {
+            matiere: "Systèmes électroniques avancés",
+            module: "Electronique de transmission",
+            coefficient: 1,
+            credits: 2,
+          },
+          {
+            matiere: "Systèmes électroniques avancés",
+            module: "Circuits Programmables",
+            coefficient: 1,
+            credits: 2,
+          },
+          {
+            matiere: "Systèmes électroniques avancés",
+            module: "Atelier Systèmes électroniques avancés",
+            coefficient: 0.5,
+            credits: 1,
+          }
+
         ],
       },
       STICSR: {
@@ -704,7 +723,7 @@ const isetComData = {
             matiere: "Conception et réalisation des TIC 3",
             module: "Atelier Programmation orientée objet",
             coefficient: 0.5,
-            credits: 1,
+            credits: 2,
           },
           {
             matiere: "Conception et réalisation des TIC 3",
@@ -808,7 +827,7 @@ const isetComData = {
             matiere: "Conception et réalisation des TIC4",
             module: "Atelier conception orientée objet",
             coefficient: 0.5,
-            credits: 1,
+            credits: 2,
           },
           {
             matiere: "Conception et réalisation des TIC4",
@@ -831,6 +850,18 @@ const isetComData = {
           {
             matiere: "Communication et développement personnel 4",
             module: "Création d'entreprise 1",
+            coefficient: 1,
+            credits: 2,
+          },
+          {
+            matiere: "Optimisation du développement web",
+            module: "Atelier E-commerce",
+            coefficient: 1,
+            credits: 2,
+          },
+          {
+            matiere: "Optimisation du développement web",
+            module: "Atelier Framework client/serveur",
             coefficient: 1,
             credits: 2,
           },
