@@ -105,6 +105,23 @@
       "rating": 4.2
     },
     {
+      "id": 7,
+      "title": "Optique Geo",
+      "description": "Ce lien contient une playlist ytb à propos l'optique geo.",
+      "type": "video",
+      "url": "https://youtube.com/playlist?list=PL9niwmraVUM7IfjFp8LMs7zbe-nESb6ku&si=g7_arBP9zqT-NpoB",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-2UU1OFIc0iVBf_WKsX1I0K6Fn2UeC2ULVg&s",
+      "department": "stic",
+      "semester": 2,
+      "speciality": "trc",
+      "category": "video",
+      "tags": ["Cours", "Séries", "DS", "Examens"],
+      "author": "mohssen el misski",
+      "dateAdded": "2024-12-01",
+      "downloads": 230,
+      "rating": 4
+    },
+    {
       "id": 1000,
       "title": "Introduction aux Réseaux Informatiques",
       "description": "Cours complet sur les fondamentaux des réseaux",
