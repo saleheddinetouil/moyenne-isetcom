@@ -732,7 +732,7 @@ const isetComData = {
           },
           {
             matiere: "Pratiques Managériales",
-            module: "Gestion de temps",
+            module: "Lean Management",
             coefficient: 1,
             credits: 2,
           },
