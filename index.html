@@ -190,7 +190,7 @@
             <div class="services-grid">
                 <div class="service-card">
                     <i class="fas fa-book-reader text-4xl mb-4"></i>
-                    <h3>Bibliothèque Numérique</h3>
+                    <h3>Bibliothèque</h3>
                     <p>Accès aux ressources académiques</p>
                     <a href="bib.html" class="service-btn">Explorer</a>
                 </div>
@@ -200,56 +200,16 @@
                     <p>Forum et entraide étudiante</p>
                     <a href="https://www.facebook.com/groups/377145616641546" class="service-btn">Rejoindre</a>
                 </div>
+                <div class="service-card">
+                    <i class="fas fa-chalkboard-teacher text-4xl mb-4"></i>
+                    <h3>Guides</h3>
+                    <p>Guide des départements STIC/GTIC</p>
+                    <a href="guide.html" class="service-btn">Explorer</a>
+                </div>
+                
             </div>
         </div>
 
-
-        <!-- Enhanced Guide Section -->
-        <div class="guide-container glass-card p-8 mb-8">
-          <h2
-          class="text-2xl font-bold mb-6 flex items-center"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-        >
-          <i class="fas fa-book-open mr-3"></i> Guides
-        </h2>
-        <div
-          class="speciality-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          data-aos-delay="200"
-        >
-          <div class="directions-btn flex  justify-between space-around spec-card p-6 rounded-lg shadow-lg bg-white transition-transform hover:scale-105" >
-                  <h3 class="text-xl font-bold mb-4">GTIC</h3>
-                  
-                  <a href="files/gtic.pdf" class="download-button text-xl" download>
-                       <i class="fas fa-download ml-2"></i>
-                  </a>
-              </div>
-              <div class="directions-btn flex  justify-between space-around spec-card p-6 rounded-lg shadow-lg bg-white transition-transform hover:scale-105">
-                  <h3 class="text-xl font-bold mb-4">STIC</h3>
-                  
-                  <a href="files/stic.pdf" class="download-button text-xl" download>
-                       <i class="fas fa-download ml-2"></i>
-                  </a>
-              </div>
-              <div class="directions-btn flex  justify-between space-around spec-card p-6 rounded-lg shadow-lg bg-white transition-transform hover:scale-105">
-                  <h3 class="text-xl font-bold mb-4">STIC SR</h3>
-                 
-                  <a href="files/sticsr.pdf" class="download-button text-xl" download>
-                       <i class="fas fa-download ml-2"></i>
-                  </a>
-              </div>
-              <div class="directions-btn flex  justify-between space-around spec-card  p-6 rounded-lg shadow-lg bg-white transition-transform hover:scale-105">
-                  <h3 class="text-xl font-bold mb-4">STIC RST</h3>
-                  
-                  <a href="files/sticrst.pdf" class="download-button text-xl" download>
-                       <i class="fas fa-download ml-2"></i>
-                  </a>
-              </div>
-              
-        </div>
-      </div>
         <!-- Quick Access Floating Menu -->
         <div class="floating-menu">
             <a href="#calculator" class="menu-item" title="Calculateur">
@@ -258,39 +218,16 @@
             <a href="#services-hub" class="menu-item" title="Services">
                 <i class="fas fa-th"></i>
             </a>
-            <a href="#map" class="menu-item" title="Campus">
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
             <a href="bib.html" class="menu-item" title="Bibliothèque">
                 <i class="fas fa-book-reader"></i>
             </a>
-        </div>
-
-        <div
-          class="glass-card p-8 mb-8"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-        >
-          <h2 class="text-2xl font-bold mb-4"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          >
-            <i class="fas fa-map-marker-alt mr-3"></i> Carte de l'Institut
-          </h2>
-
-          <!-- Map Container -->
-          <div id="map" class="w-full h-[500px] rounded-lg shadow-lg"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          ></div>
-        </div>
-        
-
+            <a href="guide.html" class="menu-item" title="Guides">
+                <i class="fas fa-book-open"></i>
+            </a>
 
         </div>
 
-
-
+        </div>
 
     <footer class="text-center text-gray-600 text-sm mt-auto py-4">
       <div>
@@ -306,26 +243,17 @@
       </div>
     </footer>
 
-   
-
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin=""></script>
-    <script src="assets/js/map.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/data.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      // Initialize AOS
       AOS.init({
         duration: 1000,
         once: true,
         offset: 100,
         delay: 100
       });
-
     </script>
-    <!-- Add FAQ JavaScript -->
     <script src="assets/js/faq.js"></script>
   </body>
 </html>
