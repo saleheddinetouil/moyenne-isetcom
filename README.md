@@ -4,7 +4,7 @@ Ce site web vous permet de calculer facilement votre moyenne pour chaque semestr
 
 ## Accéder au calculateur
 
-Visitez [https://saleheddinetouil.github.io/moyenne-isetcom](https://saleheddinetouil.github.io/moyenne-isetcom) pour utiliser le calculateur.
+Visitez [https://moyenne-isetcom.netlify.app](https://moyenne-isetcom.netlify.app) pour utiliser le calculateur.
 
 ## Utilisation
 
